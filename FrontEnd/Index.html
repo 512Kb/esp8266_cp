@@ -1,0 +1,3871 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Консоль управления</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, user-scalable=yes">
+<style type="text/css">
+
+body{
+ 		margin-top:1%;
+ 		background: white;
+ 		display: block;
+ 	}
+
+.ttable {
+ 		width: 100%;
+ 		border-width: 1px; 	
+ 		padding: 15px;
+ 		border-bottom-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 18px;	
+		border-top-left-radius: 18px;
+	    border-style: solid;
+	    border-color: #4fc9e8;	
+   	    background: #9aad9f linear-gradient(#89bbe2, #9aad9f 50%, #378bce);		
+	    border-spacing:0;
+	    overflow: hidden;
+	    -ms-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none; 
+        user-select:none;
+ 	}
+
+.ttable td {
+ 		text-align: center;
+ 		border-style: none;
+ 		border-width: 1px;
+ 		border-radius: 0px;
+ 		}
+
+a.bbutton {
+  height: 100%;
+  display: inline-block;
+  width: 12em;
+  font-size: 100%;
+  color: rgba(255,255,255,.9);
+  text-shadow: #2e7ebd 0 1px 2px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.1;
+  white-space: pre-line;
+  padding: .7em 0;
+  border: 1px solid;
+  border-color: #60a3d8 #2970a9 #2970a9 #60a3d8;
+  border-radius: 6px;
+  outline: none;
+  background: #60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce);
+  box-shadow: inset rgba(255,255,255,.5) 1px 1px;
+  overflow:hidden;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none; 
+  user-select:none;
+}
+
+
+a.bbutton:hover {
+  color: rgb(255,255,255);
+  background-image: linear-gradient(#9dc7e7, #74afdd 50%, #378bce);
+}
+a.bbutton:active {
+  color: rgb(255,255,255);
+  border-color: #2970a9;
+  background-image: linear-gradient(#5796c8, #6aa2ce);
+  box-shadow: none;
+}
+
+
+input {
+	width: 100%;
+	font-size: 13px;
+	padding: 6px 0 4px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 8px;	
+	border-top-left-radius: 8px;
+
+	border-bottom-color:  #0011ff;
+	border-left-color:  #0011ff;
+	border-top-color: green;
+	border-right-color: green;
+}
+
+
+#sensors_settings_table_id {
+	width: 100%;
+	padding-left: 1%;
+	padding-right: 1%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;	
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;	
+    margin-bottom: 8%;
+    margin-top: -20px;
+		}
+
+		
+#sensors_settings_table_id tr{
+	margin-left: 1%;
+	margin-right: 1%;
+
+		}		
+
+#sensors_settings_table_id input{
+	text-align: center;
+ 		}
+
+
+.sensors_settings_data_class{
+		width: 100;
+
+		}
+
+.sensors_settings_data_class td table {
+		margin-left: 0px;
+		margin-right: 5px;
+		width: 100%;
+		}		
+
+
+
+.addr_btn_class a{
+		font-size: 110%; 
+ 		width:98%;
+ 		line-height: 0.5;
+ 		color: yellow;
+ 		margin-left: auto;
+    	background: navy linear-gradient(#89bbe2, navy 50%, #378bce);
+    	border-top-left-radius: 0;
+    	border-top-right-radius: 0;	
+    	border-bottom-right-radius: 16px;
+    	border-bottom-left-radius: 16px;
+		}
+
+.name_txt_class input{
+		font-size: 110%;
+		font-weight:900;
+		color:navy;
+		width: 95%;
+		margin: auto; 
+    	border-top-left-radius: 16px;
+    	border-top-right-radius: 16px;	
+    	border-bottom-right-radius: 0;
+    	border-bottom-left-radius: 0;		
+		}
+
+
+
+hr {
+ 		height: 3px;
+   	    background: green linear-gradient(#89bbe2, green 50%, #378bce);	
+   	    border-style: none;	
+   	    margin: 60px 50px 60px 50px; 
+ 		}
+
+
+.time_hr{
+		height: 2px;
+		background: silver;	
+	    margin-top: 10px;
+	    margin-bottom: 25px;
+	    margin-left: 10px;
+	    width: 210px  
+		}
+
+
+.addrfield, .relay_hid_class, .addition{
+ 		display: none;
+ 	}
+
+.tempershow{
+		font-size: 2em;
+		color: #090b52;
+	}
+
+.password_panel_class {
+	display: none;
+	margin-left: 5%;
+	width: 90%;
+	margin-top: 10%;
+	}
+
+.password_panel_class table{
+	width: 100%;
+	}
+
+.password_panel_class a{
+    width:100%;
+    padding-left: 0;
+	}
+
+.settings_button_class {
+	width: 100%;
+    display:inline-block;
+    margin-top: 3%;	
+	}
+
+.settings_button_class a,
+.password_panel_class a{
+	width: 100%;
+    background: #144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce);
+	}
+
+
+.settings_panel_class{
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-right: 5%;
+	margin-bottom: 5%;
+	display: none;	
+	}
+
+
+
+.sensors_settings_buttons, .sens_select_class{
+	width: 15em;
+	height: 2em;
+	}
+
+.relay0_settings_class, 
+.relay1_settings_class, 
+.relay2_settings_class,
+.relay3_settings_class{
+	display: none;
+	}
+
+
+label, .labelled, .tempershow {
+	margin-left:20px;
+	color:  navy;
+	font-size: 45px;
+	text-shadow: 2px 1px 3px #273cd9;
+	}
+
+.active_sensors_addr_string, .active_sensors_temp_string {
+	margin-left:0;
+	color:  navy;
+	font-size: 100%;
+	text-shadow: 2px 1px 3px #273cd9;
+	}
+
+.active_sensors_temp_string{
+ 	width: 20%;
+ 	color: black;
+ 	}
+
+.active_sensors_addr_string{
+	width: 80%;
+	}
+
+
+#time_adjust_id{
+	display: none;
+	padding-top: 5%;
+	padding-bottom: 5%;
+    margin-left:1%;
+    margin-right:1%;
+    width:98%;
+ 	}
+
+#time_adjust_id table{
+	width: 100%;
+	}
+
+#time_adjust_id td{
+	height: 300%;
+	}
+
+#time{ 
+	text-align: center;
+	font-style: italic; 
+	font-size: 250%;
+	font-weight: 800;
+	vertical-align: middle;
+	line-height: 200%
+	}
+
+
+#time_adjust_btn_id{
+  	border-radius: 10px;
+  	line-height: 30px;
+  	text-align: center;
+  	font-size: 20px;
+  	width: 100%;	
+    background: #144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce);
+    color:#faf207; 
+ 	}
+
+#sensors_panel_id{
+    display: none;
+    padding-top: 2%;
+	padding-bottom: 1%;
+    width: 90%;
+    margin-left: 5%;
+	}
+
+#sensors_panel_id table:nth-child(1){
+    	border-top-left-radius: 16px;
+    	border-top-right-radius: 16px;	
+    	border-bottom-right-radius: 0;
+    	border-bottom-left-radius: 0;
+    	margin-bottom: 0;
+}
+
+
+
+#settings_menu_id a{
+	 font-size: 100%;
+	 font-weight: 900;
+     background: green linear-gradient(#89bbe2, green 50%, #378bce);
+     margin: 0;
+     white-space: normal;
+     width: 100%;
+}
+
+#settings_menu_id td{
+	width: 50%;
+}
+
+#relays_control_buttons_id {
+	display: none;
+	width: 98%;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 5%;
+	overflow: hidden;
+}
+
+#relays_control_buttons_id a{
+	font-size: 80%;
+	width: 90%;
+	height: 90%;
+	white-space: nowrap;
+}
+
+#relays_control_buttons_id table{
+	border-spacing: 5px;
+}
+
+
+#time_adjust_btn_id{
+	width: 80%;
+	margin-left: 10%; 
+}
+
+
+.relays_allsettings_class{
+	margin-left: 2%;
+	margin-right: 2%;
+	padding-bottom: 1%;
+}
+
+.relays_allsettings_class table{
+	width: 100%;
+}
+
+.relays_allsettings_class table a{
+	width: 100%;
+	border-radius: 0;
+    background: green linear-gradient(#89bbe2, green 50%, #378bce);	
+}
+
+.relays_allsettings_class a[id^="relay0"]{
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+}
+
+.relays_allsettings_class a[id^="relay3"]{
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+
+#settings_relays_panel_id{
+	display: none;
+	margin-bottom: 2%;
+}
+
+#save_relay_settings_button_id{
+	display: none;
+}
+
+#relay0_settings_id{
+	width: 100%;
+}
+
+#relay0_settings_id table{
+    width: 100%;
+    border: blue;
+    border-style: solid;
+    border-width: thin;
+    padding: 1%;
+    border-radius: 5px;
+    background: #c5f0cd;
+}
+
+#relay0_settings_id tr{
+	width: 100%
+}
+
+#relay0_settings_id a{
+	font-size: 100%;
+	font-weight: 900;
+	width: 100%;
+}
+
+
+.directions_class{
+	font-size: 200%; 
+    font-weight:900;
+	text-align: center;
+}
+
+#relay0_label_tempon_id, #relay0_label_tempoff_id{
+	font-size: 250%;
+	font-weight: 900;
+	text-align: center;	
+	color:  navy;
+	text-shadow: 2px 1px 3px #273cd9;	
+}
+
+#relay0_settings_name_id, #relay1_settings_name_id,
+#relay2_settings_name_id, #relay3_settings_name_id{
+	width: 99%;
+	font-size: 200%;
+	color: navy;
+	font-weight: 900;
+	margin-top:4%;
+	padding-left: 1%;
+	padding-top: 0;
+	text-align: center;
+}
+
+#relay0_enable_button_id {
+	width: 100%;
+    background: green linear-gradient(#89bbe2, green 50%, #378bce);		
+}
+
+
+#relay1_caption_table_id, 
+#relay2_caption_table_id,
+#relay3_caption_table_id{
+    width: 100%;
+    border: green;
+    border-style: solid;
+    border-width: thin;
+    padding: 1%;
+    border-radius: 5px;
+    background: #c5f0cd;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 3%;
+}
+
+
+
+#relay1_enable_button_id, #relay1_control_method_button_id,
+#relay2_enable_button_id, #relay2_control_method_button_id,
+#relay3_enable_button_id, #relay3_control_method_button_id{
+	width: 100%;
+	margin:auto;
+}
+
+
+#relay1_enable_button_id,
+#relay2_enable_button_id,
+#relay3_enable_button_id{
+ background:green linear-gradient(#89bbe2, green 50%, #378bce);
+}
+
+
+#div_relay1_time_buttons_id,
+#div_relay2_time_buttons_id,
+#div_relay3_time_buttons_id{
+	display: none;
+	width: 100%;
+}
+
+#relay1_time_buttons_id,
+#relay2_time_buttons_id,
+#relay3_time_buttons_id{
+	width: 100%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#relay1_time_buttons_id a,
+#relay2_time_buttons_id a,
+#relay3_time_buttons_id a{
+  width: 100%;
+  border-radius: 0px;
+}
+
+#div_relay1_temp_table_controlled_id,
+#div_relay2_temp_table_controlled_id,
+#div_relay3_temp_table_controlled_id{
+	width: 100%;
+}
+
+#div_relay1_temp_table_controlled_id table,
+#div_relay2_temp_table_controlled_id table,
+#div_relay3_temp_table_controlled_id table{
+    background: #c5f0cd none repeat scroll 0 0;
+    border: thin solid green;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 1%;
+    width: 100%;
+   }
+
+#div_relay1_temp_table_controlled_id a,
+#div_relay2_temp_table_controlled_id a,
+#div_relay3_temp_table_controlled_id a{
+    width: 100%;
+}
+
+#div_relay1_temp_table_controlled_id td,
+#div_relay2_temp_table_controlled_id td,
+#div_relay3_temp_table_controlled_id td{
+	text-align: center;
+	width:100;
+}
+
+#relay1_label_tempon_id, #relay1_label_tempoff_id,
+#relay2_label_tempon_id, #relay2_label_tempoff_id,
+#relay3_label_tempon_id, #relay3_label_tempoff_id{
+    font-size: 250%;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 20%;
+    text-shadow: 2px 1px 3px #273cd9;	
+}
+
+
+.relay_time_class{
+	display: none;
+    background: #c5f0cd none repeat scroll 0 0;
+    border: thin solid green;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 1%;
+}
+
+.relay_time_class a{
+ 	width: 100%;
+ 	font-size: 120%;
+ 	font-weight: 700;
+}
+
+.timeset_row_id td {
+	padding-top: 5%;
+}
+
+.timeset_row_id a{
+	line-height: 50%;
+}
+
+.timeset_timeup_class{
+    color: black;
+    font-size: 250%;
+    font-weight: 900;
+    padding: 0;
+    text-align: center;
+    text-shadow: 2px 1px 3px #273cd9;
+	width: 10%
+}
+
+.timeset_delim_class{
+    color: navy;
+    font-size: 200%;
+    font-weight: 400;
+    padding: 0;
+    text-align: center;
+    text-shadow: 2px 1px 3px #273cd9;
+    width: 1%
+}
+
+#wifi_settings_id,
+#change_password_id{
+	display: none;
+	width: 100%;
+	margin-top: 5%;
+}
+
+#wifi_settings_id table,
+#change_password_id table{
+	text-align: left;
+	width: 100%;
+	padding: 1%;
+	border-spacing: 5px;
+	background: #74abc4;
+	border-radius: 8px;	
+}
+
+#wifi_settings_id a{
+	width: 100%
+	font-size:18px;
+	font-weight: 700;
+	background: #144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce); 
+}
+
+#wifi_settings_id input,
+#change_password_id input{
+   padding-left: 0;
+   text-align: center;
+   font-size: 18px;
+   font-weight: 900;
+   color: black;  
+}
+
+#save_fiwi_settings_button_id,
+#change_password_id a{
+	margin-top: 5%;
+	margin-left: 1%;
+	width: 98%;
+}
+
+
+#show_relays_button_div_id{
+	width: 100%;
+	margin-top: 2%;
+}
+
+#show_relays_button_div_id table{
+	width: 100%;
+}
+
+#show_relays_button_id{
+	width: 100%;
+	background: #144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce); 
+	font-size: 25px;
+	font-weight: 700;
+	color: yellow;
+}
+
+.relays_panel{
+	display: none;
+}
+
+#password_edit_id{
+	text-align: center;
+}
+
+</style>
+<script type="text/javascript">
+//---------------------------------------------------------------
+ const  _green='green linear-gradient(#89bbe2, green 50%, #378bce)';
+ const  _red='#e02884 linear-gradient(#89bbe2, #e02884 50%, #378bce)';
+ const _blue='#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)';
+
+ var SID = ''
+ var sensor_index_for_relay = 1;
+ var openned_relay_number_id = 0;
+
+ var SensorForRelayData;
+ var SensorForCoupleData;
+
+ var timerId;
+
+//---------------------------------------------------------------
+function getInfofromServer(param)
+{
+var xmlhttp;
+	if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+	else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	xmlhttp.open("GET",param,false); 
+	xmlhttp.send();
+	return xmlhttp.responseText;
+}
+//---------------------------------------------------------------
+function putInfo2Server(param, data)
+{
+var xmlhttp;
+	if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+	else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	xmlhttp.open("PUT",param,false); 
+	xmlhttp.send(data);
+	return xmlhttp.responseText;
+}
+//---------------------------------------------------------------
+
+function getInfofromServerAsync(param,func)
+{
+var xmlhttp;
+	if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+	else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	xmlhttp.open("GET",param,true); 
+	xmlhttp.send();
+
+
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState == 4)  
+		{
+			return func(xmlhttp.responseText);
+		}
+	}
+}
+//---------------------------------------------------------------
+
+function adjustDeviceDateTime()
+{
+    var Data = new Date();
+    var dateTime = 
+    {
+    	seconds:  Data.getSeconds().toString(),
+    	minutes:  Data.getMinutes().toString(),
+    	hour:    Data.getHours().toString(),
+    	day:  Data.getDay().toString(),
+    	date: Data.getDate().toString(),
+    	month:  (Data.getMonth()+1).toString(),
+    	year:  (((Data.getFullYear() / 100) % 1).toFixed(2) * 100).toString()
+    }
+    var str=JSON.stringify(dateTime);
+    putInfo2Server('+time+&sid['+SID+']&',str);
+	getInfofromServerAsync('&time&',showDeviceTime);
+}
+//---------------------------------------------------------------
+function showSensors(data)
+{
+try{	
+	if (!data) return;
+	str=JSON.parse(data);
+var i;
+var a,t;
+ 
+ for (var j=1;j<6;j++)
+ {
+ 	switch(j)
+ 	{
+ 		case 1: a=str.a1; t=str.t1; break;
+ 		case 2: a=str.a2; t=str.t2; break;
+ 		case 3: a=str.a3; t=str.t3; break;
+ 		case 4: a=str.a4; t=str.t4; break;
+ 		case 5: a=str.a5; t=str.t5;
+ 	}
+
+ if (a!='') 
+	{
+  		for (i=1;i<6;i++)
+  	 	{
+  	 		if (document.getElementById('sens_addr'+(i-1).toString()).innerHTML == a)
+  	 		{
+  	 			document.getElementById('temp'+(i-1).toString()).innerHTML=t+' ºС';
+  	 		}
+  	 	}
+	} 	
+ }	
+
+
+	if (str.couptemp) 
+    	document.getElementById('temp5').innerHTML=str.couptemp+' ºС'
+	else
+    	document.getElementById('temp5').innerHTML='--';
+}
+catch(e){}
+}
+//---------------------------------------------------------------
+function showDeviceTime(data)
+{
+	//var days=['понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'];
+	var starr=data.split('.');
+
+	var s=starr[4];
+	if (s.length == 1) {s='0'+s;}
+	var nstr=s+'.';
+
+	s=starr[5];
+	if (s.length == 1) {s='0'+s;}
+    nstr=nstr+s+'.';
+
+    s=starr[6];
+	if (s.length == 1) {s='0'+s;};
+
+    nstr=nstr+s+'   ';
+
+    s=starr[2];
+	if (s.length == 1) {s='0'+s;}
+    nstr=nstr+s+':';
+
+	s=starr[1];
+	if (s.length == 1) {s='0'+s;}
+    nstr=nstr+s;
+
+   	document.getElementById('time').innerHTML=nstr;
+}
+//---------------------------------------------------------------
+function showRelaysState(data)
+{
+try{	
+   str=JSON.parse(data);
+   var s;
+
+  for (var i=0;i<4;i++)
+  {
+  	switch (i)
+  	{
+  		case 0: {s=str.r0; break;}
+ 		case 1: {s=str.r1; break;}
+  		case 2: {s=str.r2; break;}
+  		case 3: {s=str.r3;}
+  	}
+
+   if (document.getElementById('relay'+i.toString()+'_active').innerHTML=='1')
+   		{
+   			if (s=='0') 
+   				{			 
+   	 				document.getElementById('table_relay'+i.toString()+'_state_id').style.background="#05f545 linear-gradient(#89bbe2, #05f545 50%, #378bce)";
+   				}
+     		else
+   				{
+   					document.getElementById('table_relay'+i.toString()+'_state_id').style.background="#f505d9 linear-gradient(#89bbe2, #f505d9 50%, #378bce)";
+   				}
+		}
+	else
+		{ 
+			document.getElementById('table_relay'+i.toString()+'_state_id').style.background="#9aad9f linear-gradient(#89bbe2, #9aad9f 50%, #378bce)";
+		}
+  }
+}
+catch(e){}
+}
+//---------------------------------------------------------------
+function showRelaysStatesInSettingsPannel(data)
+{
+try{	
+   str=JSON.parse(data);
+   var i;
+   var states=new Array();
+   states[0]=str.r0;
+   states[1]=str.r1;
+   states[2]=str.r2;
+   states[3]=str.r3;
+   var obj;
+
+for (i=0;i<4;i++)
+{
+	obj=document.getElementById('relay'+i.toString()+'_control_button_id');
+    if (states[i]=='0') 
+   		{
+   	 		obj.style.background='green linear-gradient(#89bbe2, green 50%, #378bce)'
+   		}
+     	else
+   		{
+   			obj.style.background='red linear-gradient(#89bbe2, red 50%, #378bce)'
+   		}
+}
+}
+catch(e){}
+ 
+}
+//---------------------------------------------------------------
+function parseGData(data)
+{
+	if (!data) return;
+	if (data=='ERROR') return;
+	var starr=data.split('|');
+		showSensors(starr[0]);
+		showRelaysState(starr[1]);
+}
+//---------------------------------------------------------------
+function queryDeviceGData()
+{
+   	getInfofromServerAsync('&fpdata&',parseGData);
+}
+
+//---------------------------------------------------------------
+function hidePassEdit()
+{
+document.getElementById('password_panel_id').style='display:none';
+}
+//---------------------------------------------------------------
+function showPassEdit()
+{
+document.getElementById('password_panel_id').style='display:block';
+}
+//---------------------------------------------------------------
+function InitSensorsPanelandRelays()
+{
+try{	
+	var str=getInfofromServer("&dfile[cfg_ds18b20].get&");
+
+	var ds18cfg=JSON.parse(str);
+
+	if (!ds18cfg) return false;
+
+	var n,a;
+
+	for (var i=0;i<6;i++)
+	{
+		switch(i)
+		{
+			case 0: n=ds18cfg.n1; a=ds18cfg.a1; break;
+			case 1: n=ds18cfg.n2; a=ds18cfg.a2; break;
+			case 2: n=ds18cfg.n3; a=ds18cfg.a3; break;
+			case 3: n=ds18cfg.n4; a=ds18cfg.a4; break;
+			case 4: n=ds18cfg.n5; a=ds18cfg.a5;
+		}
+
+		if ((n!='') && (a!='--') && (a!= '0'))
+			{
+
+				document.getElementById('tablesens'+i.toString()).style.dispaly='block';
+				document.getElementById('idsens'+i.toString()).innerHTML=n;
+				document.getElementById('sens_addr'+i.toString()).innerHTML=a;
+			}
+				else
+			{
+				document.getElementById('tablesens'+i.toString()).style.display='none';
+			}	
+	}
+
+			
+	 str=getInfofromServer("&dfile[cfg_couple].get&");
+	 var couple=JSON.parse(str);
+
+    if (!couple) return false;
+
+	if (couple.name!='')
+		{
+			document.getElementById('tablesens5').style='display:block';
+			document.getElementById('idsens5').innerHTML=couple.name;
+		}
+	else
+		{
+			document.getElementById('tablesens5').style='display:none';
+		}
+
+
+	var act,name;
+	var rel;
+
+
+	 for (var i=0;i<4;i++)
+	 {
+	    str=getInfofromServer("&dfile[cfg_relay"+i.toString()+"_m].get&");
+ 		rel=JSON.parse(str);
+	 	if (rel) 
+	 	{
+	 		if (rel.name!='') {document.getElementById('relay'+i.toString()+'_state').innerHTML=rel.name}
+	 			  else
+	 			  	{document.getElementById('relay'+i.toString()+'_state').innerHTML='Устройство '+i.toString()}
+	 		document.getElementById('relay'+i.toString()+'_active').innerHTML=rel.active;
+	 	}
+	 }	
+}
+catch(e){}	 
+	return true; 
+}
+//---------------------------------------------------------------
+		
+function InitSettingsSensorsPanel()
+{
+try{
+ SensorForRelayData=getInfofromServer("&dfile[cfg_ds18b20].get&");
+ 	var n,a;
+
+	var ds18cfg=JSON.parse(SensorForRelayData);
+ 	if (!ds18cfg) return;	
+
+  for (var i=0;i<5;i++)
+  {
+  		switch(i)
+  		{
+  			case 0: n=ds18cfg.n1; a=ds18cfg.a1; break;
+  			case 1: n=ds18cfg.n2; a=ds18cfg.a2; break;
+  			case 2: n=ds18cfg.n3; a=ds18cfg.a3; break;
+  			case 3: n=ds18cfg.n4; a=ds18cfg.a4; break;
+  			case 4: n=ds18cfg.n5; a=ds18cfg.a5;
+  		}
+
+	if (n && a)
+		{
+			document.getElementById('sensor'+i.toString()+'_name_id').value=n;
+			document.getElementById('sens'+i.toString()+'_button_id').innerHTML=a;
+		}
+
+  }
+
+  SensorForCoupleData=getInfofromServer("&dfile[cfg_couple].get&");
+
+	 var couple=JSON.parse(SensorForCoupleData);
+
+    if (!couple) return;
+
+	if (couple.name) document.getElementById('sensor5_name_id').value=couple.name;
+}
+catch(e){}	
+}
+//---------------------------------------------------------------
+function saveSensorsPannelSettings()
+{	
+ var json={
+ 	n1: document.getElementById('sensor0_name_id').value,
+ 	a1: document.getElementById('sens0_button_id').innerHTML,
+  	n2: document.getElementById('sensor1_name_id').value,
+ 	a2: document.getElementById('sens1_button_id').innerHTML,	
+  	n3: document.getElementById('sensor2_name_id').value,
+ 	a3: document.getElementById('sens2_button_id').innerHTML,	
+  	n4: document.getElementById('sensor3_name_id').value,
+ 	a4: document.getElementById('sens3_button_id').innerHTML,	
+  	n5: document.getElementById('sensor4_name_id').value,
+ 	a5: document.getElementById('sens4_button_id').innerHTML	
+	}
+
+	var res1,res2;
+	var str1,str2;
+
+    str1=JSON.stringify(json);
+    res1=putInfo2Server("&dfile[cfg_ds18b20].set&sid["+SID+"]&",str1);
+    if (res1 == 'ERROR') exitSettigsMenu();	
+    if (res1 == 'OK') SensorForRelayData=str1;	
+    var json_={name: document.getElementById('sensor5_name_id').value}
+	str2=JSON.stringify(json_);
+	res2=putInfo2Server("&dfile[cfg_couple].set&sid["+SID+"]&",str2);
+	if (res2 == 'ERROR') exitSettigsMenu();
+	if (res2=='OK') SensorForCoupleData=str2;
+	if ((res1=='OK') && (res2=='OK')) 
+	{
+		document.getElementById('save_sensors_data_id').innerHTML='Успешно!';
+		setTimeout(function(){document.getElementById('save_sensors_data_id').innerHTML='Сохранить'},1500);
+	}
+}
+//---------------------------------------------------------------
+function getSidByPassword()
+{
+	var passtxt=document.getElementById('password_edit_id').value;
+	if (!passtxt) return false;
+    var pass={password: passtxt}
+    var json=JSON.stringify(pass);
+    var str=putInfo2Server('&getsid&',json);
+    if (str=='0') return false;
+    SID=str;
+    return true;
+} 	
+
+//---------------------------------------------------------------
+
+function showSensorsInSettingsPanel(data)
+{
+	var str=JSON.parse(data);
+	var starr= new Array();
+	var i,j;
+	j=0;
+
+	if (str.t1) 
+	{starr[j]=new Array(str.t1,str.a1)} else {starr[j]=new Array('','')}
+	j++;
+
+	if (str.t2) 
+	{starr[j]=new Array(str.t2,str.a2)} else {starr[j]=new Array('','')}
+	j++;
+
+	if (str.t3) 
+	{starr[j]=new Array(str.t3,str.a3)} else {starr[j]=new Array('','')}
+	j++;
+
+	if (str.t4) 
+	{starr[j]=new Array(str.t4,str.a4)} else {starr[j]=new Array('','')}
+	j++;
+
+	if (str.t5) 
+	{starr[j]=new Array(str.t5,str.a5)} else {starr[j]=new Array('','')}
+
+ var obj1,obj2;
+ for (i=0;i<5;i++)
+ {
+    obj1=document.getElementById('active_sensors'+i.toString()+'_temp_id');
+    obj2=document.getElementById('active_sensors'+i.toString()+'_addr_id');
+    if (starr[i][0] !='')
+    {
+    	obj1.innerHTML=starr[i][0];
+    	obj2.innerHTML=starr[i][1];
+    }
+    else
+    {
+     	obj1.innerHTML='--';
+    	obj2.innerHTML='--';   	
+    }	
+ }
+
+if (str.couptemp) 
+    	document.getElementById('active_sensors5_temp_id').innerHTML=str.couptemp;
+	else
+    	document.getElementById('active_sensors5_temp_id').innerHTML='--'; 
+}
+//---------------------------------------------------------------
+function sensorsSettingsButtonsClick(num)
+{
+	var i=parseInt(document.getElementById('sens'+num.toString()+'_addr_counter').innerHTML);
+	var j;
+	var item=new Array();
+	var s;
+
+	for (j=0;j<5;j++){
+		s=document.getElementById('active_sensors'+j.toString()+'_addr_id').innerHTML;
+		if (s!='--') item[j]=s;
+	}
+	 if (item.length == 0) return '--';
+	 i++;
+	 if (i>=item.length) i=0;
+	  
+	document.getElementById('sens'+num.toString()+'_addr_counter').innerHTML=i.toString();
+
+	var obj;
+	for (j=0;j<5;j++){
+	  obj=document.getElementById('active_sensors'+j.toString()+'_addr_id');
+	  if (obj.innerHTML==item[i])  {
+	  	document.getElementById('active_sensors'+j.toString()+'_temp_id').style='background-color:silver';
+	  	obj.style='background-color:silver'} else {
+	  		document.getElementById('active_sensors'+j.toString()+'_temp_id').style='background-color:white';
+	  		obj.style='background-color:white'}
+	}
+
+	return item[i];
+}
+//---------------------------------------------------------------
+function scrollDown()
+{
+    var scrollHeight = document.documentElement.scrollHeight;
+    var clientHeight = document.documentElement.clientHeight;
+    scrollHeight = Math.max(scrollHeight, clientHeight);
+    window.scrollTo(0, scrollHeight - document.documentElement.clientHeight)
+}
+//---------------------------------------------------------------
+function changeButtonValue(value,minvalue,maxvalue,op)
+{
+  if (!value) return;
+  var curvalue = parseInt(value);
+  if (curvalue==maxvalue) {curvalue=minvalue} else { if (op=='+') {curvalue++} else {curvalue--}}
+  var str=curvalue.toString();
+  if (str.length == 1) {str='0'+str;}
+  return str;
+}
+//---------------------------------------------------------------
+function buttonClick2(id,string1,string2,backcolor1,backcolor2,func)
+{
+	var obj=document.getElementById(id);
+	if (!obj) return;
+	if (obj.innerHTML==string1) 
+	{
+		obj.innerHTML=string2;
+		obj.style.background=backcolor2;
+	}
+		else
+		{
+			obj.innerHTML=string1;
+			obj.style.background=backcolor1;
+		}
+	if (func) func(id);		
+}
+//---------------------------------------------------------------
+
+function buttonClick(id,charcode1,charcode2,backcolor1,backcolor2,func)
+{
+	var obj=document.getElementById(id);
+	if (!obj) return;
+	if (obj.innerHTML.charCodeAt(0)==charcode1) 
+	{
+		obj.innerHTML=String.fromCharCode(charcode2);
+		obj.style.background=backcolor2;
+	}
+		else
+		{
+			obj.innerHTML=String.fromCharCode(charcode1);
+			obj.style.background=backcolor1;
+		}
+	if (func) func(id);			
+}
+//---------------------------------------------------------------
+function relay0ActiveButtonControl(buttonid)
+{
+	var obj=document.getElementById(buttonid);
+ if (obj.innerHTML.charCodeAt(0)==10008)
+ 	{
+	document.getElementById('relay0_settings_name_id').disabled=true;
+	document.getElementById('relay0_button_tempon_up_id').style='pointer-events:none';
+	document.getElementById('relay0_button_tempoff_up_id').style='pointer-events:none';
+	document.getElementById('relay0_button_tempon_down_id').style='pointer-events:none';
+	document.getElementById('relay0_button_tempoff_down_id').style='pointer-events:none';
+	document.getElementById('relay0_settings_table_id').style.background='#eeb6f2';		
+	} 
+		else
+	{
+		document.getElementById('relay0_settings_name_id').disabled=false;
+		document.getElementById('relay0_button_tempon_up_id').style='pointer-events:auto';
+		document.getElementById('relay0_button_tempoff_up_id').style='pointer-events:auto';
+		document.getElementById('relay0_button_tempon_down_id').style='pointer-events:auto';
+		document.getElementById('relay0_button_tempoff_down_id').style='pointer-events:auto';
+		document.getElementById('relay0_settings_table_id').style.background='#c5f0cd';	
+
+	}
+}
+//---------------------------------------------------------------
+function relay13ActiveButtonControl(buttonid)
+{
+	var relaynum=parseInt(buttonid.substring(5,6)); // button id string includes relay number
+	var obj=document.getElementById(buttonid);
+ if (obj.innerHTML.charCodeAt(0)==10008) // denied
+ 	{
+ 		document.getElementById('relay'+relaynum.toString()+'_control_method_button_id').style='pointer-events:none';
+ 		document.getElementById('relay'+relaynum.toString()+'_settings_name_id').disabled=true;
+ 		document.getElementById('div_relay'+relaynum.toString()+'_temp_table_controlled_id').style.display='none';
+ 		document.getElementById('div_relay'+relaynum.toString()+'_time_buttons_id').style.display='none';
+ 		for (var i=1;i<6;i++){document.getElementById('relay'+relaynum.toString()+'_time'+i.toString()+'_table_controlled').style.display='none'}
+	} 
+		else 
+			{
+ 				document.getElementById('relay'+relaynum.toString()+'_control_method_button_id').style='pointer-events:auto';
+ 				document.getElementById('relay'+relaynum.toString()+'_settings_name_id').disabled=false;
+ 				if (document.getElementById('relay'+relaynum.toString()+'_control_method_button_id').innerHTML=='Время')
+ 				{
+ 					document.getElementById('div_relay'+relaynum.toString()+'_time_buttons_id').style.display='block';
+ 					for (var i=1; i<6;i++) {document.getElementById('time'+i.toString()+'_enable_forrelay'+relaynum.toString()+'_id').style.background=_blue;}
+ 				}	
+ 					else
+ 					{
+ 						document.getElementById('div_relay'+relaynum.toString()+'_temp_table_controlled_id').style.display='block';
+ 					}			
+			}
+}
+//---------------------------------------------------------------
+function resetTimeDate(relaynum,timerownum)
+{
+	var Data = new Date();
+    var min,h,d,m,y;
+    y=(((Data.getFullYear() / 100) % 1).toFixed(2) * 100).toString();
+    m=(Data.getMonth()+1).toString();
+    if (m.length==1) {m='0'+m}
+    d=Data.getDate().toString();
+    if (d.length==1) {d='0'+d}
+    min=Data.getMinutes().toString();
+    if (min.length==1){min='0'+min}
+    h=Data.getHours().toString();
+    if (h.length==1){h='0'+h}	
+
+	document.getElementById('relay'+relaynum.toString()+'_minute_select_on'+timerownum.toString()+'_id').innerHTML=min;
+	document.getElementById('relay'+relaynum.toString()+'_hour_select_on'+timerownum.toString()+'_id').innerHTML=h;
+	document.getElementById('relay'+relaynum.toString()+'_day_select_on'+timerownum.toString()+'_id').innerHTML=d;
+	document.getElementById('relay'+relaynum.toString()+'_month_select_on'+timerownum.toString()+'_id').innerHTML=m;
+	document.getElementById('relay'+relaynum.toString()+'_year_select_on'+timerownum.toString()+'_id').innerHTML=y;
+	document.getElementById('relay'+relaynum.toString()+'_minute_select_off'+timerownum.toString()+'_id').innerHTML=min;
+	document.getElementById('relay'+relaynum.toString()+'_hour_select_off'+timerownum.toString()+'_id').innerHTML=h;
+	document.getElementById('relay'+relaynum.toString()+'_day_select_off'+timerownum.toString()+'_id').innerHTML=d;
+	document.getElementById('relay'+relaynum.toString()+'_month_select_off'+timerownum.toString()+'_id').innerHTML=m;
+	document.getElementById('relay'+relaynum.toString()+'_year_select_off'+timerownum.toString()+'_id').innerHTML=y;	
+}
+//---------------------------------------------------------------
+function incdecIHByButton(idtochangeih,minval,maxval,op) //  op +\-
+{
+   var obj=document.getElementById(idtochangeih);
+   if (!obj) return;
+   var val = parseInt(obj.innerHTML);
+   if (op=='+')
+    {
+    	if (val==maxval) {val=minval-1}
+   		val++;
+   	} 
+   		else 
+   				{
+					if (val==minval){val=maxval+1}   					
+   					val--;
+   				}
+   obj.innerHTML=val.toString(); 
+}
+//---------------------------------------------------------------
+function changeTimeTempControlMethod(buttonid)
+{
+  var relaynum=parseInt(buttonid.substring(5,6)); // button id string includes relay number	
+  var obj = document.getElementById('relay'+relaynum.toString()+'_control_method_button_id');	
+	if (obj.innerHTML=='Температура')
+	 {
+ 	 	 for (var i=1;i<6;i++)
+	 	 {
+		 	document.getElementById('relay'+relaynum.toString()+'_time'+i.toString()+'_table_controlled').style.display='none';
+	 	 }
+		 	document.getElementById('div_relay'+relaynum.toString()+'_time_buttons_id').style.display='none';	 	 
+		 	document.getElementById('div_relay'+relaynum.toString()+'_temp_table_controlled_id').style.display='block';	 		 	 
+	} 
+		else 
+			{
+		 		document.getElementById('div_relay'+relaynum.toString()+'_time_buttons_id').style.display='block';
+				document.getElementById('div_relay'+relaynum.toString()+'_temp_table_controlled_id').style.display='none';
+				for (var i=1; i<6;i++) {document.getElementById('time'+i.toString()+'_enable_forrelay'+relaynum.toString()+'_id').style.background=_blue;}	 	 		
+			}
+}
+//---------------------------------------------------------------
+function enable_disableTimeRow(buttonid)
+ {
+    var relaynum=parseInt(buttonid.substring(5,6));
+ 	var time=parseInt(buttonid.substring(11,12));
+	var obj=document.getElementById(buttonid);
+	var el=document.getElementsByName('relay'+relaynum.toString()+'_time'+time.toString()+'_button');
+	var j=el.length;
+
+	if (obj.innerHTML.charCodeAt(0)==10004)
+		{
+			for (var i=0;i<j;i++)
+				 {
+				 	if (el[i].style.display!='none') el[i].style='pointer-events:auto';
+				 }
+				document.getElementById('relay'+relaynum.toString()+'_time'+time.toString()+'_table_controlled').style.background='#c5f0cd';
+		} 
+			else
+			{
+				for (var i=0;i<j;i++) 
+				{
+					if (el[i].style.display!='none') el[i].style='pointer-events:none';
+				}
+				document.getElementById('relay'+relaynum.toString()+'_time'+time.toString()+'_table_controlled').style.background='#eeb6f2';										
+			}
+}
+//---------------------------------------------------------------
+function setresetEveryDayMode(buttonid)
+{
+    var relaynum=parseInt(buttonid.substring(5,6));
+ 	var time=parseInt(buttonid.substring(20,21));
+	var obj=document.getElementById(buttonid);
+	
+	if (obj.innerHTML!='_:_') 
+	{
+		document.getElementById('relay'+relaynum.toString()+'_day_select_on'+time.toString()+'_id').style='display:inline-block';
+		document.getElementById('relay'+relaynum.toString()+'_day_select_off'+time.toString()+'_id').style='display:inline-block';
+		document.getElementById('relay'+relaynum.toString()+'_month_select_on'+time.toString()+'_id').style='display:inline-block';
+		document.getElementById('relay'+relaynum.toString()+'_month_select_off'+time.toString()+'_id').style='display:inline-block';
+		document.getElementById('relay'+relaynum.toString()+'_year_select_on'+time.toString()+'_id').style='display:inline-block';
+		document.getElementById('relay'+relaynum.toString()+'_year_select_off'+time.toString()+'_id').style='display:inline-block';
+	} 
+	  else 
+		{
+			document.getElementById('relay'+relaynum.toString()+'_day_select_on'+time.toString()+'_id').style.display='none';
+			document.getElementById('relay'+relaynum.toString()+'_day_select_off'+time.toString()+'_id').style.display='none';
+			document.getElementById('relay'+relaynum.toString()+'_month_select_on'+time.toString()+'_id').style.display='none';
+			document.getElementById('relay'+relaynum.toString()+'_month_select_off'+time.toString()+'_id').style.display='none';
+			document.getElementById('relay'+relaynum.toString()+'_year_select_on'+time.toString()+'_id').style.display='none';
+			document.getElementById('relay'+relaynum.toString()+'_year_select_off'+time.toString()+'_id').style.display='none';
+		}
+}
+//---------------------------------------------------------------
+function loadRelaysSettings(num)
+	{		
+				num--;
+
+		if (num==0) 
+			{
+			try{	
+				var str=getInfofromServer('&dfile[cfg_relay'+num.toString()+'].get&');
+				var relay=JSON.parse(str);
+				if (!relay) return;		
+				document.getElementById('relay0_settings_name_id').value=relay.name;
+				var obj=document.getElementById('relay0_enable_button_id');
+
+				if (relay.active == '1')
+				{
+					document.getElementById('relay0_settings_table_id').style.background='#c5f0cd';	
+					buttonClick('relay0_enable_button_id',10004,10008,_green,_red,relay0ActiveButtonControl);
+					if (obj.innerHTML.charCodeAt(0)!=10004) {buttonClick('relay0_enable_button_id',10004,10008,_green,_red,relay0ActiveButtonControl);}
+				}
+				else
+				{
+					document.getElementById('relay0_settings_table_id').style.background='#eeb6f2';	
+					buttonClick('relay0_enable_button_id',10004,10008,_green,_red,relay0ActiveButtonControl);
+					if (obj.innerHTML.charCodeAt(0)==10004) {buttonClick('relay0_enable_button_id',10004,10008,_green,_red,relay0ActiveButtonControl);}	
+				}
+
+				document.getElementById('relay0_label_tempon_id').innerHTML=relay.temp_on;
+				document.getElementById('relay0_label_tempoff_id').innerHTML=relay.temp_off;
+			}
+			catch(e){}
+				return;
+			}
+
+				var t_on,t_off,t_ed,t_a;
+				var _id;
+				var _obj;
+			try{
+				var str=getInfofromServer('&dfile[cfg_relay'+num.toString()+'].get&');
+				var relay=JSON.parse(str);
+				if (!relay) return;
+				document.getElementById('relay'+num.toString()+'_settings_name_id').value=relay.name;
+
+					document.getElementById('relay'+num.toString()+'_label_tempon_id').innerHTML=relay.tmp_on;
+					document.getElementById('relay'+num.toString()+'_label_tempoff_id').innerHTML=relay.tmp_off;
+
+					document.getElementById('relay'+num.toString()+'_sensorid_button_id').innerHTML=sensorAddr2Name(relay.ds_a);					
+
+
+				for (var numtimetable=1;numtimetable<6;numtimetable++)
+				{
+					switch (numtimetable)
+					{
+						case 1: { t_on=relay.t1on; t_off=relay.t1off; t_ed=relay.t1ed; t_a=relay.t1a; break}
+						case 2: { t_on=relay.t2on; t_off=relay.t2off; t_ed=relay.t2ed; t_a=relay.t2a; break}
+						case 3: { t_on=relay.t3on; t_off=relay.t3off; t_ed=relay.t3ed; t_a=relay.t3a; break}
+						case 4: { t_on=relay.t4on; t_off=relay.t4off; t_ed=relay.t4ed; t_a=relay.t4a; break}
+						case 5: { t_on=relay.t5on; t_off=relay.t5off; t_ed=relay.t5ed; t_a=relay.t5a; break}												
+					}	
+						
+						document.getElementById('relay'+num.toString()+'_hour_select_on'+numtimetable.toString()+'_id').innerHTML=t_on.substring(6,8);
+						document.getElementById('relay'+num.toString()+'_minute_select_on'+numtimetable.toString()+'_id').innerHTML=t_on.substring(8);
+						document.getElementById('relay'+num.toString()+'_day_select_on'+numtimetable.toString()+'_id').innerHTML=t_on.substring(4,6);
+						document.getElementById('relay'+num.toString()+'_month_select_on'+numtimetable.toString()+'_id').innerHTML=t_on.substring(2,4);
+						document.getElementById('relay'+num.toString()+'_year_select_on'+numtimetable.toString()+'_id').innerHTML=t_on.substring(0,2);	
+						document.getElementById('relay'+num.toString()+'_hour_select_off'+numtimetable.toString()+'_id').innerHTML=t_off.substring(6,8);
+						document.getElementById('relay'+num.toString()+'_minute_select_off'+numtimetable.toString()+'_id').innerHTML=t_off.substring(8);	
+						document.getElementById('relay'+num.toString()+'_day_select_off'+numtimetable.toString()+'_id').innerHTML=t_off.substring(4,6);
+						document.getElementById('relay'+num.toString()+'_month_select_off'+numtimetable.toString()+'_id').innerHTML=t_off.substring(2,4);
+						document.getElementById('relay'+num.toString()+'_year_select_off'+numtimetable.toString()+'_id').innerHTML=t_off.substring(0,2);
+
+					_id='relay'+num.toString()+'_time_everyday'+numtimetable.toString()+'_id';	
+					_obj=document.getElementById(_id);
+						if (t_ed=='1') 
+					{
+						buttonClick2(_id,'_:_','_:_/_._._',_blue,_blue,setresetEveryDayMode);
+						if (_obj.innerHTML!='_:_') {buttonClick2(_id,'_:_','_:_/_._._',_blue,_blue,setresetEveryDayMode);}
+					}
+						else 
+							{
+								buttonClick2(_id,'_:_','_:_/_._._',_blue,_blue,setresetEveryDayMode);
+								if (_obj.innerHTML!='_:_/_:_:_') {buttonClick2(_id,'_:_','_:_/_._._',_blue,_blue,setresetEveryDayMode);}
+							}
+
+					
+
+					_id='relay'+num.toString()+'_time'+numtimetable.toString()+'_active_id';
+					_obj=document.getElementById(_id);
+						if (t_a=='1') 
+					{
+						buttonClick(_id,10004,10008,_green,_red,enable_disableTimeRow);
+						if (_obj.innerHTML.charCodeAt(0)!=10004) 
+							{buttonClick(_id,10004,10008,_green,_red,enable_disableTimeRow);}
+					}
+						else 
+							{
+								buttonClick(_id,10004,10008,_green,_red,enable_disableTimeRow);
+								if (_obj.innerHTML.charCodeAt(0)!=10008) 
+									{buttonClick(_id,10004,10008,_green,_red,enable_disableTimeRow)}
+							}	
+					
+				}
+
+			_id='relay'+num.toString()+'_control_method_button_id';
+			_obj=document.getElementById(_id);
+			if (relay.tmpactiv=='1') 
+				{
+					buttonClick2(_id,'Время','Температура',_blue,_blue,changeTimeTempControlMethod);
+					if (_obj.innerHTML!='Температура') 
+						{buttonClick2(_id,'Время','Температура',_blue,_blue,changeTimeTempControlMethod)}
+				}
+				else 
+					{
+						buttonClick2(_id,'Время','Температура',_blue,_blue,changeTimeTempControlMethod);
+						if (_obj.innerHTML!='Время') 
+							{buttonClick2(_id,'Время','Температура',_blue,_blue,changeTimeTempControlMethod)}
+					}
+
+
+
+				_id='relay'+num.toString()+'_enable_button_id';
+				_obj=document.getElementById(_id);
+
+			if (relay.active=='1') 
+				{
+					buttonClick(_id,10004,10008,_green,_red,relay13ActiveButtonControl);
+					if (_obj.innerHTML.charCodeAt(0)!=10004) 
+							{buttonClick(_id,10004,10008,_green,_red,relay13ActiveButtonControl);}
+				}
+				else 
+					{
+						buttonClick(_id,10004,10008,_green,_red,relay13ActiveButtonControl);
+						if (_obj.innerHTML.charCodeAt(0)!=10008) 
+							{buttonClick(_id,10004,10008,_green,_red,relay13ActiveButtonControl)}
+					}	
+
+}
+catch(e){}
+}
+//---------------------------------------------------------------
+function buttonsValues2TimeStr(relay,rownum,onoff)
+{
+	var res='';
+	var _substr='_off';
+	if (onoff=='on') {_substr='_on'}
+	res=res+document.getElementById('relay'+relay.toString()+'_year_select'+_substr+rownum.toString()+'_id').innerHTML;
+	res=res+document.getElementById('relay'+relay.toString()+'_month_select'+_substr+rownum.toString()+'_id').innerHTML;
+	res=res+document.getElementById('relay'+relay.toString()+'_day_select'+_substr+rownum.toString()+'_id').innerHTML;
+	res=res+document.getElementById('relay'+relay.toString()+'_hour_select'+_substr+rownum.toString()+'_id').innerHTML;	
+	res=res+document.getElementById('relay'+relay.toString()+'_minute_select'+_substr+rownum.toString()+'_id').innerHTML;	
+  return res;
+}	
+//---------------------------------------------------------------
+function saveRelaysSettings(num)
+{
+	var json;
+	var str;
+	var res1,res2;
+	var act;
+
+// first relay
+    if (num==0) return;
+	if (num==1)
+	{
+		act='0';
+		if  (document.getElementById('relay0_enable_button_id').innerHTML.charCodeAt(0)==10004) {act='1'}
+		str={
+				active:act,
+				name:document.getElementById('relay0_settings_name_id').value,
+				temp_on:document.getElementById('relay0_label_tempon_id').innerHTML,
+				temp_off:document.getElementById('relay0_label_tempoff_id').innerHTML
+			}
+
+		if (parseInt(str.temp_off) >= parseInt(str.temp_on)) {alert('Температура отключения не должна быть выше включения!'); return}
+		if (parseInt(str.temp_on) <= parseInt(str.temp_off)+20) {alert('Разница температур должна быть не менее 20 ºС!'); return}
+
+		json=JSON.stringify(str);
+
+			res1=putInfo2Server("&dfile[cfg_relay0].set&sid["+SID+"]&",json);
+			if (res1 == 'ERROR') exitSettigsMenu();
+  
+  			str=null;
+  			str={
+  					active: act,
+  					name:document.getElementById('relay0_settings_name_id').value
+  				}
+  			 json=JSON.stringify(str);
+  			 res2=putInfo2Server("&dfile[cfg_relay0_m].set&sid["+SID+"]&",json);
+			if (res2 == 'ERROR') exitSettigsMenu();
+			if ((res1=='OK') && (res2=='OK')) {
+				document.getElementById('save_relays_settings_button_id').innerHTML='Успешно!';
+				setTimeout(function(){document.getElementById('save_relays_settings_button_id').innerHTML='Сохранить'},1500);
+			}
+			return;
+	}
+
+// other relays
+num--;
+			act='0';
+ 		if (document.getElementById('relay'+num.toString()+'_enable_button_id').innerHTML.charCodeAt(0)==10004) {act='1';}
+ 			var time1active='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time1_active_id').innerHTML.charCodeAt(0)==10004){time1active='1'}
+			var time2active='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time2_active_id').innerHTML.charCodeAt(0)==10004){time2active='1'}
+			var time3active='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time3_active_id').innerHTML.charCodeAt(0)==10004){time3active='1'}
+ 			var time4active='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time4_active_id').innerHTML.charCodeAt(0)==10004){time4active='1'}
+			var time5active='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time5_active_id').innerHTML.charCodeAt(0)==10004){time5active='1'}
+
+ 			var tmpact='0';
+ 		if (document.getElementById('relay'+num.toString()+'_control_method_button_id').innerHTML=='Температура'){tmpact='1'}
+
+ 			var _everyday1='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time_everyday1_id').innerHTML=='_:_'){_everyday1='1'}
+ 			var _everyday2='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time_everyday2_id').innerHTML=='_:_'){_everyday2='1'}
+ 			var _everyday3='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time_everyday3_id').innerHTML=='_:_'){_everyday3='1'}
+  			var _everyday4='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time_everyday4_id').innerHTML=='_:_'){_everyday4='1'}
+  			var _everyday5='0';
+ 		if (document.getElementById('relay'+num.toString()+'_time_everyday5_id').innerHTML=='_:_'){_everyday5='1'}	
+
+ 	str={
+ 		active:act,
+ 		name:document.getElementById('relay'+num.toString()+'_settings_name_id').value,
+ 		tmpactiv:tmpact,
+ 		t1a:time1active,
+ 		t1on:buttonsValues2TimeStr(num,1,'on'),
+ 		t1off:buttonsValues2TimeStr(num,1,'off'),
+ 		t1ed:_everyday1,
+
+  		t2a:time2active,
+ 		t2on:buttonsValues2TimeStr(num,2,'on'),
+ 		t2off:buttonsValues2TimeStr(num,2,'off'),
+ 		t2ed:_everyday2,
+
+ 		t3a:time3active,
+ 		t3on:buttonsValues2TimeStr(num,3,'on'),
+ 		t3off:buttonsValues2TimeStr(num,3,'off'),
+ 		t3ed:_everyday3, 				
+
+ 		t4a:time4active,
+ 		t4on:buttonsValues2TimeStr(num,4,'on'),
+ 		t4off:buttonsValues2TimeStr(num,4,'off'),
+ 		t4ed:_everyday4,
+
+  		t5a:time5active,
+ 		t5on:buttonsValues2TimeStr(num,5,'on'),
+ 		t5off:buttonsValues2TimeStr(num,5,'off'),
+ 		t5ed:_everyday5,
+
+ 		tmp_on:document.getElementById('relay'+num.toString()+'_label_tempon_id').innerHTML,
+		tmp_off:document.getElementById('relay'+num.toString()+'_label_tempoff_id').innerHTML, 				
+		ds_a:sensorName2Addr(document.getElementById('relay'+num.toString()+'_sensorid_button_id').innerHTML)
+	}	
+
+
+		if ((str.active=='1') &&(str.tmpactiv=='1')) 
+		{
+			var dif=(parseInt(str.tmp_on)-parseInt(str.tmp_off));
+			if (dif<0) {dif*=-1}
+				if (dif<3) 
+				{
+					alert('Разница температур не должна быть менее 3 ºС!');
+					return;
+				}
+		}
+
+
+		json=JSON.stringify(str);
+		if (hasIntersections(json)) return;		
+
+			res1=putInfo2Server('&dfile[cfg_relay'+num.toString()+'].set&sid['+SID+']&',json);
+		if (res1 == 'ERROR') exitSettigsMenu();
+
+  			str=null;
+  			str={
+  					active: act,
+  					name:document.getElementById('relay'+num.toString()+'_settings_name_id').value
+  				}
+  			json=JSON.stringify(str);
+  			res2=putInfo2Server('&dfile[cfg_relay'+num.toString()+'_m].set&sid['+SID+']&',json);
+			if (res2 == 'ERROR') exitSettigsMenu();
+  			if ((res1=='OK') && (res2=='OK')) {
+  				document.getElementById('save_relays_settings_button_id').innerHTML='Успешно!';
+				setTimeout(function(){document.getElementById('save_relays_settings_button_id').innerHTML='Сохранить'},1500);
+  			}
+}
+
+//---------------------------------------------------------------
+function hasIntersections(json)
+{
+	if (!json) return false;
+	var str=JSON.parse(json);
+
+	if ((str.active!='1') || (str.tmpactiv=='1')) return false;
+
+	var s_on,s_off;
+	var Data = new Date();
+    var curdate,d,m,y;
+    y=(((Data.getFullYear() / 100) % 1).toFixed(2) * 100).toString();
+    m=(Data.getMonth()+1).toString();
+    if (m.length==1) {m='0'+m}
+    d=Data.getDate().toString();
+    if (d.length==1) {d='0'+d}
+    curdate=y+m+d;
+
+	var arr=new Array();
+
+	var ted,tar,ton,toff;
+
+	for (var i=1;i<6;i++)
+	{
+	switch (i)
+	{
+		case 1: {tar=str.t1a;ted=str.t1ed;ton=str.t1on;toff=str.t1off;break}
+		case 2: {tar=str.t2a;ted=str.t2ed;ton=str.t2on;toff=str.t2off;break}
+		case 3: {tar=str.t3a;ted=str.t3ed;ton=str.t3on;toff=str.t3off;break}
+		case 4: {tar=str.t4a;ted=str.t4ed;ton=str.t4on;toff=str.t4off;break}
+		case 5: {tar=str.t5a;ted=str.t5ed;ton=str.t5on;toff=str.t5off;break}								
+	}
+
+	if (tar=='1')
+		{
+			if (ted=='1')
+				{
+					s_on=curdate+ton.substring(6);
+					s_off=curdate+toff.substring(6)
+				} 
+					else
+					 	{
+					 		if (parseInt(toff) <= parseInt(ton))
+					 		{
+					 			alert('Время выключения не может быть < или = времени включения в не ежедневном режиме!');
+					 			return true;
+					 		}
+					 		s_on=ton; 
+					 		s_off=toff
+					 	}
+			if (parseInt(s_on)==parseInt(s_off))
+				{
+					alert('Время включения выключения не должно совпадать!');
+					return true;
+				}		 	
+			arr.push(s_on);
+			arr.push(s_off);
+		}	
+}
+
+
+ for (var i=0;i<arr.length;i++)
+ {
+ 	for (var j=0;j<arr.length;j++)
+ 	{
+ 		if (i!=j)
+ 		{
+ 			if (parseInt(arr[i])==parseInt(arr[j]))
+ 			{
+ 				alert('Обнаружено совпадение времени включения и отключения!');
+ 				return true;
+ 			}
+ 		}
+ 	}
+ }
+
+return false;
+}
+
+//---------------------------------------------------------------
+function fetchSensorForRelay()
+{
+ if (!SensorForRelayData) SensorForRelayData=getInfofromServer("&dfile[cfg_ds18b20].get&");
+ var ds18cfg=JSON.parse(SensorForRelayData);
+ if (!ds18cfg) return;
+
+ var addr;
+ var name;
+ 
+ 	if (sensor_index_for_relay>5) {sensor_index_for_relay=1}
+
+ 	for (var i=1;i<6;i++)
+ 	{
+ 		switch(sensor_index_for_relay)
+ 		{
+ 			case 1: {addr=ds18cfg.a1; name=ds18cfg.n1; break;}
+ 			case 2: {addr=ds18cfg.a2; name=ds18cfg.n2; break;}
+ 			case 3: {addr=ds18cfg.a3; name=ds18cfg.n3; break;}
+ 			case 4: {addr=ds18cfg.a4; name=ds18cfg.n4; break;}
+ 			case 5: {addr=ds18cfg.a5; name=ds18cfg.n5; break;}		
+ 		}
+
+ 		sensor_index_for_relay++;
+
+ 	    if (sensor_index_for_relay>5) {sensor_index_for_relay=1} 
+
+ 	    if ((addr) && (addr!='') && (addr!='--') && (addr!='0')) 
+ 	    {
+
+ 	    	if  ((name) && (name !='') && (name!='--'))
+ 	    		 {return name}
+ 	    				else 
+ 	    					{return addr}
+ 	    }		
+  	}
+  return '';	
+ }
+//---------------------------------------------------------------
+function sensorAddr2Name(sensaddr)
+{
+if (!SensorForRelayData) {SensorForRelayData=getInfofromServer("&dfile[cfg_ds18b20].get&")}
+var ds18cfg=JSON.parse(SensorForRelayData);
+ if (!ds18cfg) return;
+
+if ((ds18cfg.a1==sensaddr) && (ds18cfg.n1!='') && (ds18cfg.n1!='--')) {return ds18cfg.n1} 
+if ((ds18cfg.a2==sensaddr) && (ds18cfg.n2!='') && (ds18cfg.n2!='--')) {return ds18cfg.n2} 
+if ((ds18cfg.a3==sensaddr) && (ds18cfg.n3!='') && (ds18cfg.n3!='--')) {return ds18cfg.n3}
+if ((ds18cfg.a4==sensaddr) && (ds18cfg.n4!='') && (ds18cfg.n4!='--')) {return ds18cfg.n4}
+if ((ds18cfg.a5==sensaddr) && (ds18cfg.n5!='') && (ds18cfg.n5!='--')) {return ds18cfg.n5} 
+return sensaddr; 
+}
+//---------------------------------------------------------------
+function sensorName2Addr(sensorname)
+{
+if (!SensorForRelayData) {SensorForRelayData=getInfofromServer("&dfile[cfg_ds18b20].get&")}
+var ds18cfg=JSON.parse(SensorForRelayData);
+ if (!ds18cfg) return;
+
+if ((ds18cfg.n1==sensorname) && (ds18cfg.a1!='') && (ds18cfg.a1!='--')) {return ds18cfg.a1}; 
+if ((ds18cfg.n2==sensorname) && (ds18cfg.a2!='') && (ds18cfg.a2!='--')) {return ds18cfg.a2}; 
+if ((ds18cfg.n3==sensorname) && (ds18cfg.a3!='') && (ds18cfg.a3!='--')) {return ds18cfg.a3}; 
+if ((ds18cfg.n4==sensorname) && (ds18cfg.a4!='') && (ds18cfg.a4!='--')) {return ds18cfg.a4}; 
+if ((ds18cfg.n5==sensorname) && (ds18cfg.a5!='') && (ds18cfg.a5!='--')) {return ds18cfg.a5}; 
+ return '';	
+}
+//---------------------------------------------------------------
+function hideRelaySettingsPanels()
+{
+ var i;
+ for (i=0;i<4;i++) document.getElementById('relay'+i.toString()+'_settings_id').style='display:none';
+}	
+//---------------------------------------------------------------
+function highlightRelaySettingsButtons(num)
+{
+	for (var i=0; i<4;i++) {document.getElementById('relay'+i.toString()+'_setup_button_id').style.background='green linear-gradient(#89bbe2, green 50%, #378bce)'}
+	document.getElementById('relay'+num.toString()+'_setup_button_id').style.background='navy linear-gradient(#89bbe2, navy 50%, #378bce)';
+}
+//---------------------------------------------------------------
+function getRelayNameByNum(num)
+{
+   var json=getInfofromServer('&dfile[cfg_relay'+num.toString()+'_m].get&');	
+   var str=JSON.parse(json);
+   if (str.name!='') 
+   		{return str.name} 
+   			else
+   				 {return 'Устройство '+num.toString()}
+}
+//---------------------------------------------------------------
+function setRelayState(relay)
+{
+    var str=getInfofromServer('&relay.get&');
+    var rjson;
+    var json=JSON.parse(str);
+    var _r,_s;
+    var relstate;
+    var obj;
+
+    switch(relay)
+    {
+    	case 0: {relstate=json.r0; _r='0'; if (relstate=="1") {_s='0'} else {_s='1'}; break;}
+    	case 1: {relstate=json.r1; _r='1'; if (relstate=='1') {_s='0'} else {_s='1'}; break;}
+		case 2: {relstate=json.r2; _r='2'; if (relstate=='1') {_s='0'} else {_s='1'}; break;}
+		case 3: {relstate=json.r3; _r='3'; if (relstate=='1') {_s='0'} else {_s='1'}; break;}
+		default: return;
+    }
+
+   		rjson={r:_r,s:_s}
+    	str=JSON.stringify(rjson);
+    	if (putInfo2Server("&relay.set&sid["+SID+"]&",str)=='ERROR')
+    		{
+    		  exitSettigsMenu();
+    		}
+    		else
+    		{
+    		  obj=document.getElementById('relay'+relay.toString()+'_control_button_id');
+    		  if (_s=='1') {obj.style.background='red linear-gradient(#89bbe2, red 50%, #378bce)'}
+    		  			 else 
+    		  			 		{obj.style.background='green linear-gradient(#89bbe2, green 50%, #378bce)'}
+    		  return;     		  
+    		}
+} 
+//---------------------------------------------------------------
+function demarkAllMenu()
+{
+	var div=document.getElementById('settings_menu_id');
+	var barr=div.getElementsByTagName('a');
+	for (var i=0;i<barr.length;i++)
+	{
+		barr[i].style.background='green linear-gradient(#89bbe2, green 50%, #378bce)';
+	}
+}
+//---------------------------------------------------------------
+function setActiveMenuItem(id,func)
+{
+  demarkAllMenu();
+  clearSettingsMenuTimers();
+  document.getElementById(id).style.background='blue linear-gradient(#89bbe2, blue 50%, #378bce)';	
+  if (func) func(id);
+}
+//---------------------------------------------------------------
+function hideSettingsPanels()
+{
+	document.getElementById('time_adjust_id').style.display='none';	
+	document.getElementById('sensors_panel_id').style.display='none';	
+	document.getElementById('relays_control_buttons_id').style.display='none';
+	document.getElementById('settings_relays_panel_id').style.display='none';
+	document.getElementById('wifi_settings_id').style.display='none';
+	document.getElementById('change_password_id').style.display='none';
+}
+//---------------------------------------------------------------
+function timeMenuCb()
+{
+    hideSettingsPanels();	
+	document.getElementById('time_adjust_id').style.display='block';
+    getInfofromServerAsync('&time&',showDeviceTime);
+}
+//---------------------------------------------------------------
+function querySensState()
+{
+  	getInfofromServerAsync('&sens&',showSensorsInSettingsPanel);
+}
+//---------------------------------------------------------------
+function sensorsMenuCb()
+{
+  hideSettingsPanels();
+  document.getElementById('sensors_panel_id').style.display='block';
+  InitSettingsSensorsPanel();
+  querySensState(); 
+  timerId=setInterval(function(){querySensState()},4000);
+}
+//---------------------------------------------------------------
+function queryRelsState()
+{
+   	getInfofromServerAsync('&relay.get&',showRelaysStatesInSettingsPannel);		
+}
+
+//---------------------------------------------------------------
+function controlRelaysMenuCb()
+{
+  hideSettingsPanels();
+  document.getElementById('relays_control_buttons_id').style.display='block';	
+  for (var i=0;i<4;i++)
+  		{
+  			document.getElementById('relay'+i.toString()+'_control_button_id').innerHTML=getRelayNameByNum(i)
+  		}
+  	queryRelsState();
+    timerId=setInterval(function(){queryRelsState()},2000);  	    
+}
+//---------------------------------------------------------------
+function rebootDeviceCb()
+{
+    putInfo2Server("&reboot&sid["+SID+"]&");		
+  	hideSettingsPanels();
+	document.getElementById('settings_menu_id').style.display='none';	
+	document.getElementById('first_pannel').style.display='block';
+	document.getElementById('password_panel_id').style.display='block'; 
+	document.getElementById('setting_sbutton_id').style='display:inline-block';
+	document.getElementById('password_panel_id').style='display:none';
+	window.scrollTo(0,0);
+	setTimeout(function(){InitSensorsPanelandRelays();timerId=setInterval(queryDeviceGData, 4000)},6000);
+}
+//---------------------------------------------------------------
+function exitSettigsMenu()
+{
+	clearSettingsMenuTimers()
+  	hideSettingsPanels();
+	document.getElementById('settings_menu_id').style.display='none';	
+	document.getElementById('first_pannel').style.display='block';
+	document.getElementById('password_panel_id').style.display='block'; 
+	document.getElementById('setting_sbutton_id').style='display:inline-block';
+	document.getElementById('password_panel_id').style='display:none';
+ 	window.scrollTo(0,0);
+ 	InitSensorsPanelandRelays();
+ 	queryDeviceGData();	
+	setTimeout(function(){timerId=setInterval(queryDeviceGData, 4000)},2000);	
+}
+//---------------------------------------------------------------
+function clearSettingsMenuTimers()
+{
+    if (timerId) {clearInterval(timerId); timerId=null}
+}
+//---------------------------------------------------------------
+function relaysSettingsCb()
+{
+	hideSettingsPanels();
+	document.getElementById('settings_relays_panel_id').style.display='block';
+}
+//---------------------------------------------------------------
+function changeDevice(num)
+ {
+ 	openned_relay_number_id=num+1;
+	highlightRelaySettingsButtons(num);
+ 	document.getElementById('save_relay_settings_button_id').style.display='none';
+	hideRelaySettingsPanels(num);
+	document.getElementById('relay'+(num).toString()+'_settings_id').style.display='block';
+	document.getElementById('save_relay_settings_button_id').style.display='block';	
+	loadRelaysSettings(num+1);
+ }	
+//--------------------------------------------------------------
+function hideAllTimeRows(relaynum)
+{
+	for (var i=1;i<6;i++) 
+			document.getElementById('relay'+relaynum.toString()+'_time'+i.toString()+'_table_controlled').style.display='none';
+}
+//--------------------------------------------------------------
+function caseTimeRow(relaynum,timerownum)
+{
+  hideAllTimeRows(relaynum);
+ 	for (var i=1; i<6;i++) {document.getElementById('time'+i.toString()+'_enable_forrelay'+relaynum.toString()+'_id').style.background=_blue;}
+ 	document.getElementById('time'+timerownum.toString()+'_enable_forrelay'+relaynum.toString()+'_id').style.background='navy linear-gradient(#89bbe2, navy 50%, #378bce)';	
+	document.getElementById('relay'+relaynum.toString()+'_time'+timerownum.toString()+'_table_controlled').style.display='block'; 
+}
+//--------------------------------------------------------------
+function loadWiFiSettings()
+{
+	var str=getInfofromServer('&dfile[cfg_wifi].get&');
+	var json=JSON.parse(str);
+	document.getElementById('wifi_ssid_id').value=json.ssid;
+	document.getElementById('wifi_password_id').value=json.password;	
+	var ipar=json.ip.split('.');
+	document.getElementById('ip_1t_id').value=ipar[0];
+    document.getElementById('ip_2t_id').value=ipar[1];
+	document.getElementById('ip_3t_id').value=ipar[2];
+	document.getElementById('ip_4t_id').value=ipar[3];
+	ipar=json.mask.split('.');
+	document.getElementById('mask_1t_id').value=ipar[0];
+    document.getElementById('mask_2t_id').value=ipar[1];
+	document.getElementById('mask_3t_id').value=ipar[2];
+	document.getElementById('mask_4t_id').value=ipar[3];	
+	ipar=json.gate.split('.');
+	document.getElementById('g_1t_id').value=ipar[0];
+    document.getElementById('g_2t_id').value=ipar[1];
+	document.getElementById('g_3t_id').value=ipar[2];
+	document.getElementById('g_4t_id').value=ipar[3];	
+	if (json.mode=='st')
+			document.getElementById('wifi_type_id').innerHTML='Станция';
+		else
+			document.getElementById('wifi_type_id').innerHTML='Точка доступа';
+}
+//--------------------------------------------------------------
+function saveWiFiSettings()
+{
+	var str={
+		ssid: 		document.getElementById('wifi_ssid_id').value,
+		password: 	document.getElementById('wifi_password_id').value,
+		ip:  		document.getElementById('ip_1t_id').value+'.'+
+					document.getElementById('ip_2t_id').value+'.'+
+					document.getElementById('ip_3t_id').value+'.'+
+					document.getElementById('ip_4t_id').value,
+
+		mask: 		document.getElementById('mask_1t_id').value+'.'+
+					document.getElementById('mask_2t_id').value+'.'+
+					document.getElementById('mask_3t_id').value+'.'+
+					document.getElementById('mask_4t_id').value,
+
+		gate: 		document.getElementById('g_1t_id').value+'.'+
+					document.getElementById('g_2t_id').value+'.'+
+					document.getElementById('g_3t_id').value+'.'+
+					document.getElementById('g_4t_id').value, 
+		mode: 		document.getElementById('wifi_type_id').innerHTML=='Станция' ? 'st':'ap'												
+	}
+
+	var json=JSON.stringify(str);
+	var res=putInfo2Server('&dfile[cfg_wifi].set&sid['+SID+']&',json); 
+	if (res == 'ERROR') exitSettigsMenu();		
+  			if (res=='OK') {
+  				document.getElementById('save_fiwi_settings_button_id').innerHTML='Успешно!';
+				setTimeout(function(){document.getElementById('save_fiwi_settings_button_id').innerHTML='Сохранить'},1500);
+  			}	      	
+}
+//--------------------------------------------------------------
+function setWiFiCb()
+{
+	hideSettingsPanels();
+	document.getElementById('wifi_settings_id').style.display='block';
+	loadWiFiSettings();	
+}
+//--------------------------------------------------------------
+function changePasswordCb()
+{
+	hideSettingsPanels();
+	document.getElementById('change_password_id').style.display='block';
+}
+//--------------------------------------------------------------
+function saveNewPassword()
+{
+	var pas=document.getElementById('new_pasword_id').value;
+	if (pas=='') return;
+	str={password: pas}
+	var json=JSON.stringify(str);
+	var res=putInfo2Server('&dfile[cfg_passw].set&sid['+SID+']&',json);
+    if (res == 'ERROR') exitSettigsMenu();	
+  			if (res=='OK') {
+  				document.getElementById('save_password_button_id').innerHTML='Успешно!';
+				setTimeout(function(){document.getElementById('save_password_button_id').innerHTML='Сохранить'},1500);
+  			}	   
+}
+//--------------------------------------------------------------
+function hideShowRelaysCb(id)
+{
+	if (document.getElementById(id).innerHTML=='Показать устройства')
+			document.getElementById('relays_panel_id').style.display='none';
+				else
+			document.getElementById('relays_panel_id').style.display='block';
+}
+//--------------------------------------------------------------
+function initTimers()
+{
+	InitSensorsPanelandRelays();
+	queryDeviceGData();
+	timerId=setInterval(queryDeviceGData, 4000)
+}
+//--------------------------------------------------------------
+</script>
+</head>
+<body>
+
+
+<div style="margin-top: 0;display:none;" id='settings_menu_id'>
+
+<hr style="background: navy; margin: 0 0 10px 0; height: 2px">
+
+<table style="padding: 0; border-radius: 8px 8 8 8;width:100%">
+	<tr>
+		<td><a class="bbutton" id="time_menu_id" style="width: 100%; border-radius: 18px 0 0 0;" onclick="setActiveMenuItem(this.id,timeMenuCb)">Время на <br> устройстве</a></td>
+		<td><a class="bbutton" id="sensors_menu_id" style="width: 100%; border-radius: 0 18px 0 0;" onclick="setActiveMenuItem(this.id,sensorsMenuCb)">Температурные <br> сенсоры</a></td>
+	</tr>
+	<tr>
+		<td><a class="bbutton" id="relays_menu_id" style="width: 100%; border-radius: 0px 0 0 0;" onclick="setActiveMenuItem(this.id,relaysSettingsCb)">Настройка <br> устройств</a></td>
+		<td><a class="bbutton" id="control_relays_menu_id" style="width: 100%; border-radius: 0px 0 0 0;" onclick="setActiveMenuItem(this.id,controlRelaysMenuCb)">Ручное <br> управление</a></td>
+	</tr>			
+	<tr>
+		<td><a class="bbutton" id="net_menu_id" style="width: 100%; border-radius: 0px 0 0 0;" onclick="setActiveMenuItem(this.id,setWiFiCb)">Параметры <br> Wi-Fi</a></td>
+		<td><a class="bbutton" id="password_menu_id" style="width: 100%; border-radius: 0px 0 0 0;" onclick="setActiveMenuItem(this.id,changePasswordCb)">Смена <br> пароля</a></td>
+	</tr>
+	<tr>
+		<td><a class="bbutton" id="reboot_menu_id" style="width: 100%; border-radius: 0px 0 0 18px;" onclick="setActiveMenuItem(this.id,rebootDeviceCb)">Перезагрузить<br>устройство</a></td>
+		<td><a class="bbutton" id="exit_menu_id" style="width: 100%; border-radius: 0px 0 18px 0;" onclick="setActiveMenuItem(this.id,exitSettigsMenu)">Выход из<br>меню</a></td>
+	</tr>	
+</table>	
+
+<hr style="background: navy; margin: 10px 0 0 0; height: 2px">
+</div>
+
+
+<!-- time adjust button -->
+<div id="time_adjust_id">
+	<table>
+		<tr>
+			<td class='labelled' id="time">00.00.00 00:00</td>
+		</tr>
+		<tr>
+			<td>
+ 				<a type="button" name="time_adjust_btn" id="time_adjust_btn_id" class="bbutton"  
+ 					onclick="if (adjustDeviceDateTime() == 'ERROR') exitSettigsMenu();">Установить время на устройстве</a>
+ 			</td>	
+ 		</tr>		
+ 	</table>
+ 				
+	<hr>
+</div>
+
+
+<div id="sensors_panel_id">	
+
+	<table class='ttable' style="background: #9aad9f linear-gradient(#89bbe2, #9aad9f 50%, #378bce);">
+		<tr>
+			<td class='active_sensors_addr_string' id="active_sensors0_addr_id">--</td>
+			<td class='active_sensors_temp_string' id="active_sensors0_temp_id">--</td>
+		</tr>
+		<tr>
+			<td class='active_sensors_addr_string' id="active_sensors1_addr_id">--</td>
+			<td class='active_sensors_temp_string'  id="active_sensors1_temp_id">--</td>
+		</tr>
+		<tr>
+			<td class='active_sensors_addr_string' id="active_sensors2_addr_id">--</td>
+			<td class='active_sensors_temp_string'  id="active_sensors2_temp_id">--</td>
+		</tr>
+		<tr>
+			<td class='active_sensors_addr_string' id="active_sensors3_addr_id">--</td>
+			<td class='active_sensors_temp_string' id="active_sensors3_temp_id">--</td>
+		</tr>
+		<tr>
+			<td class='active_sensors_addr_string' id="active_sensors4_addr_id">--</td>
+			<td class='active_sensors_temp_string'  id="active_sensors4_temp_id">--</td>			
+		</tr>								
+		<tr>
+			<td class='active_sensors_addr_string' id="active_sensors5_addr_id">термопара</td>
+			<td class='active_sensors_temp_string' id="active_sensors5_temp_id">--</td>			
+		</tr>										
+	</table>
+
+
+<br>
+
+
+<table class="ttable" id="sensors_settings_table_id">
+
+		<tr class="sensors_settings_data_class" id="sensors0_settings_data_id">
+		    <td>
+		  		<table>
+		  			<tr>
+						<td class="name_txt_class"><input type="text" id="sensor0_name_id" maxlength="15"></td>
+					</tr>
+					<tr>	
+						<td class="addr_btn_class"> <a class="bbutton" id="sens0_button_id" onclick="this.innerHTML=sensorsSettingsButtonsClick(0)">--</a></td>
+						<td id="sens0_addr_counter" style="display:none">0</td>
+					</tr>	
+				</table>
+			</td>
+		</tr>		
+		<tr class="sensors_settings_data_class" id="sensors1_settings_data_id">
+			<td>
+				<table>
+					<tr>
+						<td class="name_txt_class"><input type="text" id="sensor1_name_id" maxlength="15"></td>
+					</tr>
+					<tr>
+						<td class="addr_btn_class"><a class="bbutton" id="sens1_button_id" onclick="this.innerHTML=sensorsSettingsButtonsClick(1)">--</a></td>
+						<td id="sens1_addr_counter" style="display:none">0</td>
+					</tr>
+				</table>
+			</td>	
+		</tr>		
+		<tr class="sensors_settings_data_class" id="sensors2_settings_data_id">
+			<td>
+				<table>
+					<tr>
+						<td class="name_txt_class"><input type="text" id="sensor2_name_id" maxlength="15"></td>
+					</tr>
+					<tr>	
+						<td class="addr_btn_class"><a class="bbutton" id="sens2_button_id" onclick="this.innerHTML=sensorsSettingsButtonsClick(2)">--</a></td>
+						<td id="sens2_addr_counter" style="display:none">0</td>
+					</tr>
+				</table>
+			</td>	
+		</tr>		
+		<tr class="sensors_settings_data_class" id="sensors3_settings_data_id">
+			<td>
+				<table>
+					<tr>
+						<td class="name_txt_class"><input type="text" id="sensor3_name_id" maxlength="15"></td>
+					</tr>
+					<tr>	
+						<td class="addr_btn_class"><a class="bbutton" id="sens3_button_id" onclick="this.innerHTML=sensorsSettingsButtonsClick(3)">--</a></td>
+						<td id="sens3_addr_counter" style="display:none">0</td>			
+					</tr>	
+				</table>
+			</td>
+		</tr>		
+		<tr class="sensors_settings_data_class" id="sensors4_settings_data_id">
+			<td>
+				<table>
+					<tr>
+						<td class="name_txt_class"><input type="text" id="sensor4_name_id" maxlength="15"></td>
+					</tr>
+					<tr>	
+						<td class="addr_btn_class"><a class="bbutton" id="sens4_button_id" onclick="this.innerHTML=sensorsSettingsButtonsClick(4)">--</a></td>
+						<td id="sens4_addr_counter" style="display:none">0</td>			
+					</tr>	
+				</table>			
+			</td>	
+		</tr>		
+		<tr class="sensors_settings_data_class" id="sensors5_settings_data_id">
+			<td>
+				<table>
+					<tr>
+						<td class="name_txt_class"><input type="text" id="sensor5_name_id" maxlength="15"></td>
+					</tr>
+					<tr>	
+						<td class="addr_btn_class"><a class="bbutton" id="sens5_button_id">термопара</a></td>					
+					</tr>	
+				</table>				
+			</td>	
+		</tr>	
+
+</table>
+
+<br>
+
+<a  class="bbutton" style="width: 43%;border-bottom-left-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 0; border-top-right-radius: 0;margin-left: 5%; font-size: 100%; overflow: hidden;" onclick="InitSettingsSensorsPanel();">Сбросить</a>
+<a  class="bbutton" style="width: 43%;border-bottom-left-radius: 0px; border-top-left-radius: 0; border-bottom-right-radius: 10px; border-top-right-radius: 10px; margin-left: 5px; font-size: 100%; overflow: hidden;" onclick="saveSensorsPannelSettings();" id='save_sensors_data_id'>Сохранить</a>
+
+<hr>
+</div>
+
+
+
+<div id="relays_control_buttons_id">
+	 	<table class='ttable'>
+
+	 			<tr>
+	 				<td class="labelled"><a class="bbutton" id="relay0_control_button_id" onclick="setRelayState(0)">Устройство 1</a></td>
+	 			</tr>
+	 			<tr>
+	 				<td class="labelled"><a class="bbutton" id="relay1_control_button_id" onclick="setRelayState(1)">Устройство 2</a></td>
+	 			</tr>		
+	 			<tr>
+	 				<td class="labelled"><a class="bbutton" id="relay2_control_button_id" onclick="setRelayState(2)">Устройство 3</a></td>
+	 			</tr>		
+	 			<tr>
+	 				<td class="labelled"><a class="bbutton" id="relay3_control_button_id" onclick="setRelayState(3)">Устройство 4</a></td>
+	 			</tr>
+	 	</table>
+<hr>	 	
+</div>
+
+
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<div class="settings_panel_class" id="settings_relays_panel_id">	
+
+<div class="relays_allsettings_class" id="relays_allsettings_id">
+	<table>
+		<tr>
+			<td><a class="bbutton" id="relay0_setup_button_id"  onclick="changeDevice(0);"> 1 </a></td>
+			<td><a class="bbutton" id="relay1_setup_button_id"  onclick="changeDevice(1);"> 2 </a></td>
+			<td><a class="bbutton" id="relay2_setup_button_id"  onclick="changeDevice(2);"> 3 </a></td>				 
+			<td><a class="bbutton" id="relay3_setup_button_id"  onclick="changeDevice(3);"> 4 </a></td>
+		</tr>
+	</table>
+</div>
+
+<!-- -------------------------------------------------------- relay 0 ---------------------------------------------------- -->
+<div class="relay0_settings_class" id="relay0_settings_id">
+	<table id='relay0_settings_table_id'>
+		<tr>
+			<td colspan='2'>
+				<a class="bbutton" id="relay0_enable_button_id" onclick="buttonClick(this.id,10004,10008,'green linear-gradient(#89bbe2, green 50%, #378bce)',
+						'#e02884 linear-gradient(#89bbe2, #e02884 50%, #378bce)',relay0ActiveButtonControl)">&#10004;</a>	
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<input type="text" id="relay0_settings_name_id" maxlength="15">				
+			</td>			
+		</tr>
+		<tr>
+			<td class="directions_class">
+				&#9650;
+			</td>
+			<td class="directions_class">
+				&#9660;
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="bbutton" id="relay0_button_tempon_up_id" onclick="incdecIHByButton('relay0_label_tempon_id',10,100,'+')">+</a>
+			</td>
+			<td>
+				<a class="bbutton" id="relay0_button_tempoff_up_id" onclick="incdecIHByButton('relay0_label_tempoff_id',10,70,'+')">+</a>	
+			</td>
+		</tr>
+		<tr>
+			<td id="relay0_label_tempon_id">70</td>	
+			<td id="relay0_label_tempoff_id">20</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="bbutton" id="relay0_button_tempon_down_id" onclick="incdecIHByButton('relay0_label_tempon_id',10,100,'-')">-</a>
+			</td>
+			<td>
+				<a class="bbutton" id="relay0_button_tempoff_down_id" onclick="incdecIHByButton('relay0_label_tempoff_id',10,70,'-')">-</a>
+			</td>
+		</tr>
+	</table>
+</div>
+
+
+<!-- -------------------------------------------------------- relay 1 ---------------------------------------------------- -->
+<div class="relay1_settings_class" id="relay1_settings_id">
+
+	<table id="relay1_caption_table_id">
+		<tbody>
+			<tr>
+				<td><a class="bbutton" id="relay1_enable_button_id" onclick="
+				   buttonClick(this.id,10004,10008,'green linear-gradient(#89bbe2, green 50%, #378bce)',
+				   '#e02884 linear-gradient(#89bbe2, #e02884 50%, #378bce)',relay13ActiveButtonControl)">&#10004;</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="text" id="relay1_settings_name_id" maxlength="20"></td>
+			</tr>
+			<tr>	
+				<td><a class="bbutton"  id="relay1_control_method_button_id" 
+				   onclick="buttonClick2(this.id,'Время','Температура','#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)','#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)',changeTimeTempControlMethod)">Температура</a>
+				</td>
+			</tr>	
+		</tbody>			
+	</table><!--relay1_caption_table_id-->
+
+
+	<div id='div_relay1_temp_table_controlled_id'>
+		<table id="relay1_temp_table_controlled">
+		<tr>
+			<td colspan="2">
+				<a class="bbutton" id="relay1_sensorid_button_id" onclick="this.innerHTML=fetchSensorForRelay()">--</a>
+			</td>
+		</tr>					
+		<tr>
+			<td class="directions_class">&#9650;</td>
+			<td class="directions_class">&#9660;</td>					
+		</tr>
+		<tr>	
+			<td>
+				<a class="bbutton" id="relay1_button_tempon_up_id" onclick="incdecIHByButton('relay1_label_tempon_id',-45,140,'+')">+</a>	
+			</td>
+			<td>
+				<a class="bbutton" id="relay1_button_tempoff_up_id" onclick="incdecIHByButton('relay1_label_tempoff_id',-45,140,'+')">+</a>						
+			</td>
+		</tr>
+		<tr>
+			<td class='labelled' id="relay1_label_tempon_id">25</td>
+			<td class='labelled' id="relay1_label_tempoff_id">60</td>	
+		</tr>
+		<tr>
+			<td>
+				<a class="bbutton" id="relay1_button_tempon_down_id" onclick="incdecIHByButton('relay1_label_tempon_id',-45,140,'-')">-</a>
+			</td>
+			<td>
+				<a class="bbutton" id="relay1_button_tempoff_down_id" onclick="incdecIHByButton('relay1_label_tempoff_id',-45,140,'-')">-</a>
+			</td>					
+		</tr>
+		</table> <!--relay1_temp_controlled-->
+	</div>
+
+	<div id='div_relay1_time_buttons_id'>
+	<table id='relay1_time_buttons_id'>
+		<tr>
+			<td>
+				<a class="bbutton" id='time1_enable_forrelay1_id' onclick="caseTimeRow(openned_relay_number_id-1,1)">1</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time2_enable_forrelay1_id' onclick="caseTimeRow(openned_relay_number_id-1,2)">2</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time3_enable_forrelay1_id' onclick="caseTimeRow(openned_relay_number_id-1,3)">3</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time4_enable_forrelay1_id' onclick="caseTimeRow(openned_relay_number_id-1,4)">4</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time5_enable_forrelay1_id' onclick="caseTimeRow(openned_relay_number_id-1,5)">5</a>
+			</td>												
+		</tr>
+	</table>
+	</div>
+
+	<table id="relay1_time1_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay1_time1_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay1_time1_button' id="relay1_time_everyday1_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay1_time1_button' id="relay1_reset_button1_id" onclick="resetTimeDate(1,1)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay1_time1_button' id="relay1_hour_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_minute_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_day_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_month_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_year_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay1_time1_button' id="relay1_hour_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_minute_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_day_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_month_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time1_button' id="relay1_year_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+	</table>
+
+
+
+	<table id="relay1_time2_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay1_time2_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay1_time2_button' id="relay1_time_everyday2_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay1_time2_button' id="relay1_reset_button2_id" onclick="resetTimeDate(1,2)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay1_time2_button' id="relay1_hour_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_minute_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_day_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_month_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_year_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay1_time2_button' id="relay1_hour_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_minute_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_day_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_month_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time2_button' id="relay1_year_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay1_time2_controlled-->	
+
+	<table id="relay1_time3_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay1_time3_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay1_time3_button' id="relay1_time_everyday3_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay1_time3_button' id="relay1_reset_button3_id" onclick="resetTimeDate(1,3)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay1_time3_button' id="relay1_hour_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_minute_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_day_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_month_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_year_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay1_time3_button' id="relay1_hour_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_minute_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_day_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_month_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time3_button' id="relay1_year_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay1_time3_controlled-->	
+
+	<table id="relay1_time4_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay1_time4_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay1_time4_button' id="relay1_time_everyday4_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay1_time4_button' id="relay1_reset_button4_id" onclick="resetTimeDate(1,4)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay1_time4_button' id="relay1_hour_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_minute_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_day_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_month_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_year_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay1_time4_button' id="relay1_hour_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_minute_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_day_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_month_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time4_button' id="relay1_year_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay1_time4_controlled-->	
+
+	<table id="relay1_time5_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay1_time5_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay1_time5_button' id="relay1_time_everyday5_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay1_time5_button' id="relay1_reset_button5_id" onclick="resetTimeDate(1,5)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay1_time5_button' id="relay1_hour_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_minute_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_day_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_month_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_year_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay1_time5_button' id="relay1_hour_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_minute_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_day_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_month_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay1_time5_button' id="relay1_year_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay1_time5_controlled-->			
+</div>
+
+
+<!-- -------------------------------------------------------- relay 2 ---------------------------------------------------- -->
+<div class="relay2_settings_class" id="relay2_settings_id">
+
+	<table id="relay2_caption_table_id">
+		<tbody>
+			<tr>
+				<td><a class="bbutton" id="relay2_enable_button_id" onclick="
+				   buttonClick(this.id,10004,10008,'green linear-gradient(#89bbe2, green 50%, #378bce)','#e02884 linear-gradient(#89bbe2, #e02884 50%, #378bce)',relay13ActiveButtonControl)">&#10004;</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="text" id="relay2_settings_name_id" maxlength="20"></td>
+			</tr>
+			<tr>	
+				<td><a class="bbutton"  id="relay2_control_method_button_id" 
+				   onclick="buttonClick2(this.id,'Время','Температура','#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)','#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)',changeTimeTempControlMethod)">Температура</a>
+				</td>
+			</tr>	
+		</tbody>			
+	</table><!--relay2_caption_table_id-->
+
+
+	<div id='div_relay2_temp_table_controlled_id'>
+		<table id="relay2_temp_table_controlled">
+		<tr>
+			<td colspan="2">
+				<a class="bbutton" id="relay2_sensorid_button_id" onclick="this.innerHTML=fetchSensorForRelay()">--</a>
+			</td>
+		</tr>					
+		<tr>
+			<td class="directions_class">&#9650;</td>
+			<td class="directions_class">&#9660;</td>					
+		</tr>
+		<tr>	
+			<td>
+				<a class="bbutton" id="relay2_button_tempon_up_id" onclick="incdecIHByButton('relay2_label_tempon_id',-45,140,'+')">+</a>	
+			</td>
+			<td>
+				<a class="bbutton" id="relay2_button_tempoff_up_id" onclick="incdecIHByButton('relay2_label_tempoff_id',-45,140,'+')">+</a>						
+			</td>
+		</tr>
+		<tr>
+			<td class='labelled' id="relay2_label_tempon_id">25</td>
+			<td class='labelled' id="relay2_label_tempoff_id">60</td>	
+		</tr>
+		<tr>
+			<td>
+				<a class="bbutton" id="relay2_button_tempon_down_id" onclick="incdecIHByButton('relay2_label_tempon_id',-45,140,'-')">-</a>
+			</td>
+			<td>
+				<a class="bbutton" id="relay2_button_tempoff_down_id" onclick="incdecIHByButton('relay2_label_tempoff_id',-45,140,'-')">-</a>
+			</td>					
+		</tr>
+		</table> <!--relay2_temp_controlled-->
+	</div>
+
+	<div id='div_relay2_time_buttons_id'>
+	<table id='relay2_time_buttons_id'>
+		<tr>
+			<td>
+				<a class="bbutton" id='time1_enable_forrelay2_id' onclick="caseTimeRow(openned_relay_number_id-1,1)">1</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time2_enable_forrelay2_id' onclick="caseTimeRow(openned_relay_number_id-1,2)">2</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time3_enable_forrelay2_id' onclick="caseTimeRow(openned_relay_number_id-1,3)">3</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time4_enable_forrelay2_id' onclick="caseTimeRow(openned_relay_number_id-1,4)">4</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time5_enable_forrelay2_id' onclick="caseTimeRow(openned_relay_number_id-1,5)">5</a>
+			</td>												
+		</tr>
+	</table>
+	</div>
+
+	<table id="relay2_time1_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay2_time1_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay2_time1_button' id="relay2_time_everyday1_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay2_time1_button' id="relay2_reset_button1_id" onclick="resetTimeDate(2,1)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay2_time1_button' id="relay2_hour_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_minute_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_day_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_month_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_year_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay2_time1_button' id="relay2_hour_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_minute_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_day_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_month_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time1_button' id="relay2_year_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+	</table>
+
+
+
+	<table id="relay2_time2_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay2_time2_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay2_time2_button' id="relay2_time_everyday2_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay2_time2_button' id="relay2_reset_button2_id" onclick="resetTimeDate(2,2)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay2_time2_button' id="relay2_hour_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_minute_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_day_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_month_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_year_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay2_time2_button' id="relay2_hour_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_minute_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_day_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_month_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time2_button' id="relay2_year_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay1_time2_controlled-->	
+
+	<table id="relay2_time3_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay2_time3_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay2_time3_button' id="relay2_time_everyday3_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay2_time3_button' id="relay2_reset_button3_id" onclick="resetTimeDate(2,3)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay2_time3_button' id="relay2_hour_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_minute_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_day_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_month_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_year_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay2_time3_button' id="relay2_hour_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_minute_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_day_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_month_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time3_button' id="relay2_year_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay2_time3_controlled-->	
+
+	<table id="relay2_time4_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay2_time4_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay2_time4_button' id="relay2_time_everyday4_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay2_time4_button' id="relay2_reset_button4_id" onclick="resetTimeDate(2,4)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay2_time4_button' id="relay2_hour_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_minute_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_day_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_month_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_year_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay2_time4_button' id="relay2_hour_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_minute_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_day_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_month_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time4_button' id="relay2_year_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay2_time4_controlled-->	
+
+	<table id="relay2_time5_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay2_time5_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay2_time5_button' id="relay2_time_everyday5_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay2_time5_button' id="relay2_reset_button5_id" onclick="resetTimeDate(2,5)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay2_time5_button' id="relay2_hour_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_minute_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_day_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_month_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_year_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay2_time5_button' id="relay2_hour_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_minute_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_day_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_month_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay2_time5_button' id="relay2_year_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+	</table><!--relay2_time5_controlled-->			
+</div>
+
+
+<!-- -------------------------------------------------------- relay 3 ---------------------------------------------------- -->
+<div class="relay3_settings_class" id="relay3_settings_id">
+
+	<table id="relay3_caption_table_id">
+		<tbody>
+			<tr>
+				<td><a class="bbutton" id="relay3_enable_button_id" onclick="
+				   buttonClick(this.id,10004,10008,'green linear-gradient(#89bbe2, green 50%, #378bce)','#e02884 linear-gradient(#89bbe2, #e02884 50%, #378bce)',relay13ActiveButtonControl)">&#10004;</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="text" id="relay3_settings_name_id" maxlength="20"></td>
+			</tr>
+			<tr>	
+				<td><a class="bbutton"  id="relay3_control_method_button_id" 
+				   onclick="buttonClick2(this.id,'Время','Температура','#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)','#60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce)',changeTimeTempControlMethod)">Температура</a>
+				</td>
+			</tr>	
+		</tbody>			
+	</table><!--relay2_caption_table_id-->
+
+
+	<div id='div_relay3_temp_table_controlled_id'>
+		<table id="relay3_temp_table_controlled">
+		<tr>
+			<td colspan="2">
+				<a class="bbutton" id="relay3_sensorid_button_id" onclick="this.innerHTML=fetchSensorForRelay()">--</a>
+			</td>
+		</tr>					
+		<tr>
+			<td class="directions_class">&#9650;</td>
+			<td class="directions_class">&#9660;</td>					
+		</tr>
+		<tr>	
+			<td>
+				<a class="bbutton" id="relay3_button_tempon_up_id" onclick="incdecIHByButton('relay3_label_tempon_id',-45,140,'+')">+</a>	
+			</td>
+			<td>
+				<a class="bbutton" id="relay3_button_tempoff_up_id" onclick="incdecIHByButton('relay3_label_tempoff_id',-45,140,'+')">+</a>						
+			</td>
+		</tr>
+		<tr>
+			<td class='labelled' id="relay3_label_tempon_id">25</td>
+			<td class='labelled' id="relay3_label_tempoff_id">60</td>	
+		</tr>
+		<tr>
+			<td>
+				<a class="bbutton" id="relay3_button_tempon_down_id" onclick="incdecIHByButton('relay3_label_tempon_id',-45,140,'-')">-</a>
+			</td>
+			<td>
+				<a class="bbutton" id="relay3_button_tempoff_down_id" onclick="incdecIHByButton('relay3_label_tempoff_id',-45,140,'-')">-</a>
+			</td>					
+		</tr>
+		</table> <!--relay3_temp_controlled-->
+	</div>
+
+	<div id='div_relay3_time_buttons_id'>
+	<table id='relay3_time_buttons_id'>
+		<tr>
+			<td>
+				<a class="bbutton" id='time1_enable_forrelay3_id' onclick="caseTimeRow(openned_relay_number_id-1,1)">1</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time2_enable_forrelay3_id' onclick="caseTimeRow(openned_relay_number_id-1,2)">2</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time3_enable_forrelay3_id' onclick="caseTimeRow(openned_relay_number_id-1,3)">3</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time4_enable_forrelay3_id' onclick="caseTimeRow(openned_relay_number_id-1,4)">4</a>
+			</td>
+			<td>
+				<a class="bbutton" id='time5_enable_forrelay3_id' onclick="caseTimeRow(openned_relay_number_id-1,5)">5</a>
+			</td>												
+		</tr>
+	</table>
+	</div>
+
+	<table id="relay3_time1_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay3_time1_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay3_time1_button' id="relay3_time_everyday1_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay3_time1_button' id="relay3_reset_button1_id" onclick="resetTimeDate(3,1)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay3_time1_button' id="relay3_hour_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_minute_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_day_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_month_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_year_select_on1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay3_time1_button' id="relay3_hour_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_minute_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_day_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_month_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time1_button' id="relay3_year_select_off1_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+	</table>
+
+
+
+	<table id="relay3_time2_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay3_time2_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay3_time2_button' id="relay3_time_everyday2_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay3_time2_button' id="relay3_reset_button2_id" onclick="resetTimeDate(3,2)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay3_time2_button' id="relay3_hour_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_minute_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_day_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_month_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_year_select_on2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay3_time2_button' id="relay3_hour_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_minute_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_day_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_month_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time2_button' id="relay3_year_select_off2_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay1_time2_controlled-->	
+
+	<table id="relay3_time3_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay3_time3_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay3_time3_button' id="relay3_time_everyday3_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay3_time3_button' id="relay3_reset_button3_id" onclick="resetTimeDate(3,3)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay3_time3_button' id="relay3_hour_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_minute_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_day_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_month_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_year_select_on3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay3_time3_button' id="relay3_hour_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_minute_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_day_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_month_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time3_button' id="relay3_year_select_off3_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay3_time3_controlled-->	
+
+	<table id="relay3_time4_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay3_time4_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay3_time4_button' id="relay3_time_everyday4_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay3_time4_button' id="relay3_reset_button4_id" onclick="resetTimeDate(3,4)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay3_time4_button' id="relay3_hour_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_minute_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_day_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_month_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_year_select_on4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay3_time4_button' id="relay3_hour_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_minute_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_day_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_month_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time4_button' id="relay3_year_select_off4_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay3_time4_controlled-->	
+
+	<table id="relay3_time5_table_controlled" class='relay_time_class'>
+		<tr>
+			<td colspan="10">
+					<a class="bbutton" id="relay3_time5_active_id" style='background: green linear-gradient(#89bbe2, green 50%, #378bce)' onclick="
+						buttonClick(this.id,10004,10008,_green,_red,enable_disableTimeRow)">&#10004;</a>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+					<a class="bbutton" name='relay3_time5_button' id="relay3_time_everyday5_id" onclick="
+					buttonClick2(this.id,'_:_','_:_/_._._','_blue','_blue',setresetEveryDayMode)">_:_/_._._</a>				
+			</td>
+			<td>
+			</td>
+			<td colspan="2">
+					<a class='bbutton' name='relay3_time5_button' id="relay3_reset_button5_id" onclick="resetTimeDate(3,5)">R</a>					
+			</td>
+		</tr>
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9650;</td>
+			<td>
+				<a class='bbutton' name='relay3_time5_button' id="relay3_hour_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_minute_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_day_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_month_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_year_select_on5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+		<tr class='timeset_row_id'>
+			<td class='timeset_timeup_class'>&#9660;</td>
+			<td>
+				<a class='bbutton' name='relay3_time5_button' id="relay3_hour_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,23,'+')">00</a>
+			</td>
+			<td class='timeset_delim_class'>:</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_minute_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,0,59,'+')">00</a>	
+			</td>
+			<td class='timeset_delim_class'>&nbsp;</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_day_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,31,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_month_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,1,12,'+')">01</a>				
+			</td>
+			<td class='timeset_delim_class'>.</td>
+			<td>
+				<a class="bbutton" name='relay3_time5_button' id="relay3_year_select_off5_id" onclick="this.innerHTML=changeButtonValue(this.innerHTML,16,36,'+')">16</a>				
+			</td>
+		</tr>
+
+	</table><!--relay3_time5_controlled-->			
+</div>
+
+<div id='save_relay_settings_button_id'>
+
+	<a class="bbutton" id="save_relays_settings_button_id" style='width: 90%;margin-left: 5%;margin-top: 7%' onclick="saveRelaysSettings(openned_relay_number_id)">Сохранить</a>
+</div>
+
+</div>
+
+
+
+<div id='wifi_settings_id'>
+	<table>
+		<tr>
+			<td>Имя сети</td>
+			<td colspan="7"><input type="text" maxlength="30" value="espnet" id="wifi_ssid_id"></td>
+		</tr>
+		<tr>
+			<td>Пароль</td>
+			<td colspan="7"><input type="text" maxlength="30" value="12345678" id="wifi_password_id"></td>
+		</tr>
+		<tr>
+			<td>IP-адрес</td>
+			<td><input type="text" maxlength="3" value='192' id="ip_1t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='168' id="ip_2t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='0' id="ip_3t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='2' id="ip_4t_id"></td>						
+		</tr>
+		<tr>
+			<td>Маска</td>
+			<td><input type="text" maxlength="3" value='255' id="mask_1t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='255' id="mask_2t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='255' id="mask_3t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='0' id="mask_4t_id"></td>						
+		</tr>		
+		<tr>
+			<td>Шлюз</td>
+			<td><input type="text" maxlength="3" value='192' id="g_1t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='168' id="g_2t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='0' id="g_3t_id"></td>
+			<td>&nbsp;</td>
+			<td><input type="text" maxlength="3" value='1' id="g_4t_id"></td>						
+		</tr>
+		<tr>
+			<td>тип точки</td>
+			<td colspan="7"><a class="bbutton" id='wifi_type_id' style="width:100%" 
+					onclick="buttonClick2(this.id,'Точка доступа','Станция','#144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce)' ,
+					'#144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce)' ,null)">Станция</a></td>			
+		</tr>
+	</table>	
+	<a class="bbutton" id="save_fiwi_settings_button_id" onclick="saveWiFiSettings()">Сохранить</a>
+</div>
+
+
+
+<div id='change_password_id'>
+	<table>
+		<tr>
+			<td>Новый пароль</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" maxlength="15" id="new_pasword_id">
+			</td>
+		</tr>	
+	</table>
+
+	<a class="bbutton" id="save_password_button_id" onclick="saveNewPassword()">Сохранить</a>
+</div>
+
+
+
+<!-- main panel, which represents sensors data-->
+<div id='first_pannel'>
+	<div class="sensors_panel">
+		<table class="ttable">
+			<tr>
+				<td>
+					<div id="tablesens0">
+						<table class="ttable" style="background: #cbd6d4;">
+							<caption class="labelled" id="idsens0" style="text-align:left"> сенсор 0 </caption>			
+								<tr>
+									<td id="sens_addr0" class="addrfield">адрес0</td>
+									<td id="temp0" class="tempershow" style="color:#136eed">--</td>
+								</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+
+			<tr>	
+				<td>	
+		   		<div id="tablesens1">
+						<table class="ttable" style="background: #cbd6d4;">
+							<caption class="labelled" id="idsens1" style="text-align:left"> сенсор 1 </caption>			
+								<tr>
+									<td id="sens_addr1" class="addrfield">адрес0</td>
+									<td id="temp1" class="tempershow" style="color:#136eed">--</td>
+								</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>	
+					<div id="tablesens2">
+						<table class="ttable" style="background: #cbd6d4;">
+							<caption class="labelled" id="idsens2" style="text-align:left"> сенсор 2 </caption>			
+								<tr>
+									<td id="sens_addr2" class="addrfield">адрес0</td>
+									<td  id="temp2"  class="tempershow" style="color:#136eed">--</td>
+								</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<div id="tablesens3">
+						<table class="ttable" style="background: #cbd6d4;">
+							<caption class="labelled" id="idsens3" style="text-align:left"> сенсор 3 </caption>			
+								<tr>
+									<td id="sens_addr3" class="addrfield">адрес0</td>
+									<td id="temp3"  class="tempershow" style="color:#136eed">--</td>
+								</tr>
+						</table>
+					</div>	
+				</td>
+			</tr>
+	
+
+			<tr>
+				<td>	
+					<div id="tablesens4">
+						<table class="ttable" style="background: #cbd6d4;">
+							<caption class="labelled" id="idsens4" style="text-align:left"> сенсор 4 </caption>			
+								<tr>
+									<td id="sens_addr4" class="addrfield">адрес0</td>
+									<td id="temp4" class="tempershow" style="color:#136eed">--</td>
+								</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<div id="tablesens5">
+						<table class="ttable" style="background: #cbd6d4;">
+							<caption class="labelled" id="idsens5" style="text-align:left"> сенсор 5 </caption>			
+								<tr>
+									<td id="sens_addr5" class="addrfield">адрес0</td>
+									<td id="temp5" class="tempershow" style="color:#136eed">--</td>
+								</tr>
+						</table>
+					</div>	
+				</td>
+			</tr>
+		</table>
+		<hr style="margin:1%">
+	</div>
+
+	<div id='show_relays_button_div_id'>
+		<table>
+			<tr>
+				<td>
+					<a class='bbutton' id='show_relays_button_id' 
+ 						onclick="buttonClick2(this.id,'Показать устройства','Скрыть устройства','#144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce)','#144b82 linear-gradient(#89bbe2, #144b82 50%, #378bce)',hideShowRelaysCb)
+					">Показать устройства</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="relays_panel" id='relays_panel_id'>
+	<table class="ttable">
+		<tr>
+			<td>
+				<table class="ttable" id="table_relay0_state_id">
+						<tr>
+							<td class="labelled" id="relay0_state">насос</td>
+							<td id="relay0_active" class="relay_hid_class">0</td>	
+						</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+				<table  class="ttable" id="table_relay1_state_id">
+						<tr>
+							<td class="labelled" id="relay1_state">устройство 2</td>
+							<td id="relay1_active" class="relay_hid_class">0</td>	
+						</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+				<table  class="ttable" id="table_relay2_state_id">
+						<tr>
+							<td class="labelled" id="relay2_state">устройство 3</td>	
+							<td id="relay2_active" class="relay_hid_class">0</td>								
+						</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+				<table  class="ttable" id="table_relay3_state_id">
+						<tr>
+							<td class="labelled" id="relay3_state">устройство 4</td>	
+							<td id="relay3_active" class="relay_hid_class">0</td>								
+						</tr>
+				</table>
+			</td>
+		</tr>		
+	</table>
+		<hr style="margin:1%">	
+	</div>
+
+<!-- Settings button -->
+	<div class="settings_button_class" id="setting_sbutton_id">
+		<a class="bbutton"  onclick="document.getElementById('setting_sbutton_id').style='display:none';
+					document.getElementById('password_edit_id').value='';
+					document.getElementById('password_panel_id').style='display:inline-block;margin-top:10px;';
+					">Настройки</a>
+	</div>
+
+<!-- Password verification-->
+	<div id="password_panel_id" class="password_panel_class" style="display:none; width: 100%">
+		<table>
+			<tr>
+				<td>
+					<input type="password" id="password_edit_id">					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a class="bbutton" name="passwordok" style="width: 100%" onclick="
+
+					if (getSidByPassword())
+	    				{
+	    					if (timerId) {clearInterval(timerId); timerId=null;}
+							document.getElementById('first_pannel').style.display='none';
+							document.getElementById('password_panel_id').style.display='none';
+	 						demarkAllMenu();
+	 						document.getElementById('settings_menu_id').style.display='block';	
+	 						window.scrollTo(0,0);
+	 					}
+					else
+						{
+							document.getElementById('setting_sbutton_id').style='display:inline-block';
+							document.getElementById('password_panel_id').style='display:none';
+						}
+		">OK</a>					
+				</td>
+			</tr>
+		</table>
+	</div>
+
+
+</div>
+
+
+<script type="text/javascript">
+initTimers();
+window.onbeforeunload = function(evt) {
+										if (timerId) clearInterval(timerId);
+										timerId=null;
+									};
+
+</script>
+
+</body>
+</html>

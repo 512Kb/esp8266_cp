@@ -1,0 +1,15 @@
+function adjustTime(sk,header)
+print('settime') 
+local s=getPostData(header)
+local l=cjson.decode(s)
+local t={}
+table.insert(t,l["seconds"])
+table.insert(t,l["minutes"])
+table.insert(t,l["hour"])
+table.insert(t,l["day"])
+table.insert(t,l["date"])
+table.insert(t,l["month"])
+table.insert(t,l["year"])
+DS3231_setTime(t)
+sk:send(buildRequestStr('200 OK',_,'OK'))
+end
