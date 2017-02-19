@@ -31,7 +31,7 @@
 
 Все настройки веб-интерфейса достаточно просты и интуитивно понятны.
 
-##### Оборудование, использованное при постройке устройства:
+* ##### Оборудование, использованное при постройке устройства:
 
 * ######  [Блок реле 4х-канальный](https://www.aliexpress.com/wholesale?ltype=wholesale&d=y&origin=y&isViewCP=y&catId=0&initiative_id=AS_20170123032502&SearchText=4+channel+relay+module&blanktest=0&tc=af)
 * ###### [Модуль Wemos d1 mini](https://ru.aliexpress.com/wholesale?ltype=wholesale&d=y&origin=y&isViewCP=y&catId=0&initiative_id=SB_20170213030526&SearchText=wemos+d1+mini&blanktest=0&tc=af)
